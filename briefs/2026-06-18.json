@@ -34,20 +34,20 @@
     "Maersk：欧线附加费 ，17 Jun 2026起"
   ],
   "port_alerts": [
-    "宁波：运行正常（等泊 3-5）外部数据源不可用，使用默认数据",
+    "宁波：运行正常（等泊 3-5） 外部数据源不可用，使用默认数据",
     "上海：正常运行（等泊 2-4）",
-    "洛杉矶：⚠️ ⚠️ ⚠️ WAR: The Port of Los Angeles: America's Port® |（等泊 1-3）",
-    "鹿特丹：⚠️ ⚠️ ⚠️ CLOSURE: Selecteer welke nieuwsbrieven je wilt （等泊 1-2）",
-    "巴生：运行正常（等泊 2-3）外部数据源不可用，使用默认数据",
+    "洛杉矶：正常运行（等泊 1-3）",
+    "鹿特丹：运行正常（等泊 1-2）",
+    "巴生：运行正常（等泊 2-3） 外部数据源不可用，使用默认数据",
     "新加坡：运行正常（等泊 1-2）"
   ],
   "action_summary": [
-    "洛杉矶异常，建议改道或提前出运",
-    "鹿特丹异常，建议改道或提前出运"
+    "Maersk 欧线附加费  26 May 2026起，锁定长协可免附加费",
+    "Maersk 欧线附加费  12 Jun 2026起，锁定长协可免附加费"
   ],
   "meta": {
     "rates_updated": false,
     "carriers_count": 3,
-    "ports_alert_count": 2
+    "ports_alert_count": 0
   }
 }

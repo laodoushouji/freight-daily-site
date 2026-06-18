@@ -140,18 +140,46 @@ def fetch_page(url: str) -> Optional[str]:
         return None
 
 
-def detect_alert(text: str) -> tuple[bool, str]:
-    """检测异常事件，返回 (是否异常, 事件描述)"""
+def detect_alert(text: str, source_type: str = "unknown") -> tuple:
+    """检测异常事件，返回 (是否异常, 事件描述, 原因, 消息源)
+    
+    source_type 决定检测严格度：
+    - "rss": RSS 新闻标题/摘要 → 严格匹配，直接用
+    - "web": 网页全文 → 容易误判，跳过（只用 RSS 判断异常）
+    """
+    # 从网页全文做异常检测太容易误判（如 "WAR" 出现在 title 里不是战争）
+    # 只信任 RSS 新闻源
+    if source_type != "rss":
+        return False, "", "", ""
+    
     text_lower = text.lower()
     for keyword in ALERT_KEYWORDS:
         if keyword in text_lower:
             # 提取包含关键词的句子
             sentences = re.split(r'[.。!！?？\n]', text)
             for sentence in sentences:
-                if keyword in sentence.lower():
-                    alert_desc = sentence.strip()[:100]
-                    return True, f"⚠️ {keyword.upper()}: {alert_desc}"
-    return False, ""
+                if keyword in sentence.lower() and len(sentence.strip()) > 10:
+                    # 清理 HTML 残留和多余空白
+                    clean = re.sub(r'<[^>]+>', '', sentence.strip())
+                    clean = re.sub(r'\s+', ' ', clean)[:150]
+                    # 翻译关键词为中文原因
+                    reason_map = {
+                        "strike": "罢工", "罢工": "罢工",
+                        "typhoon": "台风", "台风": "台风", "cyclone": "气旋", "hurricane": "飓风",
+                        "closure": "关闭/封闭", "closed": "关闭", "封闭": "封闭", "关闭": "关闭",
+                        "blockade": "封锁", "封锁": "封锁",
+                        "explosion": "爆炸", "爆炸": "爆炸",
+                        "fire": "火灾", "火灾": "火灾",
+                        "earthquake": "地震", "地震": "地震",
+                        "tsunami": "海啸", "海啸": "海啸",
+                        "protest": "抗议活动", "抗议": "抗议活动",
+                        "curfew": "宵禁", "宵禁": "宵禁",
+                        "war": "武装冲突", "战争": "战争",
+                        "embargo": "禁运", "禁运": "禁运",
+                    }
+                    reason = reason_map.get(keyword, keyword)
+                    return True, f"⚠️ {reason}", reason, clean
+    return False, "", "", ""
 
 
 def detect_congestion(text: str) -> str:
@@ -218,16 +246,19 @@ def try_marinetraffic(port_key: str) -> Optional[dict]:
         if not text or len(text) < 50:
             return None
 
-        alert, alert_desc = detect_alert(text)
+        alert, alert_desc, alert_reason, alert_source = detect_alert(text, "marinetraffic")
         status = detect_congestion(text)
         wait_days = extract_wait_days(text, port_key)
 
         return {
             "source": "marinetraffic",
+            "source_url": url,
             "status": status,
             "wait_days": wait_days,
             "alert": alert,
             "alert_desc": alert_desc,
+            "alert_reason": alert_reason,
+            "alert_source": alert_source,
             "detail": "",
         }
     except Exception as e:
@@ -254,16 +285,19 @@ def try_port_website(port_key: str) -> Optional[dict]:
         if not text or len(text) < 50:
             return None
 
-        alert, alert_desc = detect_alert(text)
+        alert, alert_desc, alert_reason, alert_source = detect_alert(text, "port_website")
         status = detect_congestion(text)
         wait_days = extract_wait_days(text, port_key)
 
         return {
             "source": "port_website",
+            "source_url": url,
             "status": status,
             "wait_days": wait_days,
             "alert": alert,
             "alert_desc": alert_desc,
+            "alert_reason": alert_reason,
+            "alert_source": alert_source,
             "detail": "",
         }
     except Exception as e:
@@ -309,16 +343,19 @@ def try_rss_news(port_key: str) -> Optional[dict]:
         return None
 
     combined_text = " ".join(relevant_texts)
-    alert, alert_desc = detect_alert(combined_text)
+    alert, alert_desc, alert_reason, alert_source = detect_alert(combined_text, "rss")
     status = detect_congestion(combined_text)
     wait_days = extract_wait_days(combined_text, port_key)
 
     return {
         "source": "rss",
+        "source_url": feed_urls[0] if feed_urls else "",
         "status": status,
         "wait_days": wait_days,
         "alert": alert,
         "alert_desc": alert_desc,
+        "alert_reason": alert_reason,
+        "alert_source": alert_source,
         "detail": "",
     }
 
@@ -348,6 +385,10 @@ def build_fallback_port(port_key: str, date_str: str) -> dict:
         "status": "运行正常",
         "wait_days": port_config["default_wait"],
         "alert": False,
+        "reason": "",
+        "source": "",
+        "source_url": "",
+        "alternative": "",
         "detail": "外部数据源不可用，使用默认数据",
     }
 
@@ -413,10 +454,14 @@ def collect_ports(date_str: str) -> dict:
             wait_days = port_data.get("wait_days", port_config["default_wait"])
             alert = port_data.get("alert", False)
             detail = port_data.get("detail", "")
+            alert_reason = port_data.get("alert_reason", "")
+            alert_source = port_data.get("alert_source", "")
+            data_source = port_data.get("source", "")
+            source_url = port_data.get("source_url", "")
 
             # 如果有异常事件描述，加到状态前面
             if alert and port_data.get("alert_desc"):
-                status = f"⚠️ {port_data['alert_desc'][:50]}"
+                status = port_data['alert_desc']
 
             # 与上周数据对比
             prev = last_week_ports.get(port_name, {})
@@ -428,11 +473,28 @@ def collect_ports(date_str: str) -> dict:
                     if wait_days != prev_wait:
                         detail = f"较上周({prev_wait}天)有变化"
 
+            # 替代港口建议
+            alternative = ""
+            if alert and alert_reason:
+                alternatives_map = {
+                    "洛杉矶": "长滩/奥克兰（内支线加$200-350/40HQ）",
+                    "鹿特丹": "汉堡/不来梅/安特卫普（等泊更短）",
+                    "宁波": "上海/舟山（近洋替代）",
+                    "上海": "宁波/舟山（近洋替代）",
+                    "巴生": "新加坡/丹戎帕拉帕斯（近洋替代）",
+                    "新加坡": "巴生/丹戎帕拉帕斯（近洋替代）",
+                }
+                alternative = alternatives_map.get(port_name, "咨询船公司替代航线")
+
             entry = {
                 "port": port_name,
                 "status": status,
                 "wait_days": wait_days or port_config["default_wait"],
                 "alert": alert,
+                "reason": alert_reason,
+                "source": data_source,
+                "source_url": source_url,
+                "alternative": alternative,
                 "detail": detail,
             }
         else:
@@ -445,9 +507,13 @@ def collect_ports(date_str: str) -> dict:
             if prev:
                 entry["wait_days"] = prev.get("wait_days", entry["wait_days"])
                 entry["status"] = prev.get("status", entry["status"])
+                entry["reason"] = prev.get("reason", "")
+                entry["source"] = prev.get("source", "")
+                entry["source_url"] = prev.get("source_url", "")
+                entry["alternative"] = prev.get("alternative", "")
                 if prev.get("alert"):
                     entry["alert"] = prev["alert"]
-                    entry["status"] = f"⚠️ {prev['status'].replace('⚠️ ', '')}（沿用上周）"
+                    entry["status"] = f"{prev['status'].replace('⚠️ ', '')}（沿用上周）"
 
         result_ports.append(entry)
 

@@ -33,6 +33,13 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .action-box h2 { font-size: 1.15em; margin-bottom: 14px; }
 .action-items { display: flex; flex-direction: column; gap: 10px; }
 .action-item { padding: 10px 16px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.95em; line-height: 1.5; border-left: 3px solid var(--accent); }
+.action-problem { color: rgba(255,255,255,0.85); }
+.action-arrow { color: var(--accent); font-weight: 800; margin: 0 6px; font-size: 1.1em; }
+.action-solution { color: #86efac; font-weight: 600; }
+
+/* Port list items — longer text with | separators */
+.port-item { font-size: 0.88em !important; line-height: 1.6 !important; }
+.port-item::before { content: "" !important; }
 
 /* === Dashboard Grid === */
 .dashboard { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }

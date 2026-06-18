@@ -93,7 +93,7 @@ def generate_carrier_updates(carriers_data: Optional[dict]) -> list:
 
 
 def generate_port_alerts(ports_data: Optional[dict]) -> list:
-    """生成港口动态板块"""
+    """生成港口动态板块 — 含原因、消息源、替代方案"""
     if not ports_data or not ports_data.get("ports"):
         return ["暂无港口动态数据"]
 
@@ -103,12 +103,27 @@ def generate_port_alerts(ports_data: Optional[dict]) -> list:
         status = p.get("status", "")
         wait = p.get("wait_days", "N/A")
         alert = p.get("alert", False)
+        reason = p.get("reason", "")
+        source = p.get("source", "")
+        alternative = p.get("alternative", "")
         detail = p.get("detail", "")
 
         if alert:
-            line = f"{port}：⚠️ {status}（等泊 {wait}）{detail}"
+            parts = [f"{port}：⚠️"]
+            if reason:
+                parts.append(f"原因：{reason}")
+            parts.append(f"等泊 {wait} 天")
+            if alternative:
+                parts.append(f"替代：{alternative}")
+            if source:
+                parts.append(f"来源：{source}")
+            if detail:
+                parts.append(detail)
+            line = " | ".join(parts)
         else:
-            line = f"{port}：{status}（等泊 {wait}）{detail}"
+            line = f"{port}：{status}（等泊 {wait}）"
+            if detail:
+                line += f" {detail}"
 
         alerts.append(line)
 
@@ -118,7 +133,7 @@ def generate_port_alerts(ports_data: Optional[dict]) -> list:
 def generate_action_summary(rates_data: Optional[dict],
                             carriers_data: Optional[dict],
                             ports_data: Optional[dict]) -> list:
-    """生成操作建议板块 — 基于规则模板"""
+    """生成操作建议板块 — 具体可执行，不是空话"""
     actions = []
 
     # 基于运价方向
@@ -137,14 +152,29 @@ def generate_action_summary(rates_data: Optional[dict],
     # 基于船司 GRI
     if carriers_data and carriers_data.get("items"):
         gri_items = [i for i in carriers_data["items"] if i.get("type") == "GRI"]
+        surcharge_items = [i for i in carriers_data["items"] if i.get("type") == "附加费"]
+        
         for g in gri_items[:2]:
-            actions.append(f"{g['carrier']} {g['route']}GRI {g.get('amount','')} {g.get('effective','')}生效，建议提前订舱")
+            actions.append(
+                f"{g['carrier']} {g['route']}GRI {g.get('amount','')} "
+                f"{g.get('effective','')}生效，建议GRI生效前完成订舱"
+            )
+        for s in surcharge_items[:2]:
+            actions.append(
+                f"{s['carrier']} {s['route']}附加费 {s.get('amount','')} "
+                f"{s.get('effective','')}起，锁定长协可免附加费"
+            )
 
-    # 基于港口预警
+    # 基于港口预警 — 关键改动：带原因和替代方案
     if ports_data and ports_data.get("ports"):
         alert_ports = [p for p in ports_data["ports"] if p.get("alert", False)]
-        for p in alert_ports[:2]:
-            actions.append(f"{p['port']}异常，建议改道或提前出运")
+        for p in alert_ports[:3]:
+            reason = p.get("reason", "异常")
+            alternative = p.get("alternative", "咨询船公司替代航线")
+            wait = p.get("wait_days", "N/A")
+            actions.append(
+                f"{p['port']}因{reason}等泊{wait}天 → {alternative}"
+            )
 
     if not actions:
         actions.append("今日无明显风险信号，按正常节奏操作即可")

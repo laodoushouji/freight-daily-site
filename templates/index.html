@@ -42,7 +42,15 @@
             <h2>💡 今日操作建议</h2>
             <div class="action-items">
                 {% for item in action_summary %}
-                <div class="action-item">{{ item }}</div>
+                <div class="action-item">
+                    {% if "→" in item %}
+                        <span class="action-problem">{{ item.split("→")[0] }}</span>
+                        <span class="action-arrow">→</span>
+                        <span class="action-solution">{{ item.split("→")[1] }}</span>
+                    {% else %}
+                        {{ item }}
+                    {% endif %}
+                </div>
                 {% endfor %}
             </div>
         </section>
@@ -85,11 +93,12 @@
             {% if port_alerts %}
             <section class="card port-card">
                 <h2>🏭 港口动态</h2>
-                <ul class="brief-list">
+                <ul class="brief-list port-list">
                 {% for item in port_alerts %}
-                    <li>{{ item }}</li>
+                    <li class="port-item">{{ item }}</li>
                 {% endfor %}
                 </ul>
+                <p class="card-footer">数据源：MarineTraffic / 港口官网 / 行业RSS · 如有异常会标注原因和替代方案</p>
             </section>
             {% endif %}
 
