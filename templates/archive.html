@@ -1,21 +1,49 @@
-{% extends "base.html" %}
-{% block title %}往期日报 - 货代日报{% endblock %}
-
-{% block content %}
-<section class="archive">
-    <h1>📋 往期日报</h1>
-    {% for date_group in archive %}
-    <div class="archive-group">
-        <h2>{{ date_group.date_display }}</h2>
-        <div class="article-list">
-            {% for article in date_group.articles %}
-            <a href="/articles/{{ article.filename }}.html" class="article-row">
-                <span class="row-category">{{ article.category }}</span>
-                <h3>{{ article.title }}</h3>
-            </a>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>往期简报 - 货代日报</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">🚢 货代日报</a>
+            <div class="nav-right">
+                <a href="/">首页</a>
+                <a href="/about.html">关于</a>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="archive">
+            <h1>📅 往期简报</h1>
+            {% for date_group in archive %}
+            <div class="archive-group">
+                <h2>{{ date_group.date_display }}</h2>
+                {% if date_group.action_summary %}
+                <div class="archive-actions">💡 {{ date_group.action_summary | join('；') }}</div>
+                {% endif %}
+                <div class="archive-articles">
+                {% for article in date_group.articles %}
+                    <a href="/articles/{{ article.filename }}.html" class="archive-row">
+                        <span class="card-cat">{{ article.category }}</span>
+                        <span class="archive-title">{{ article.title }}</span>
+                        {% if article.impact %}
+                        <span class="archive-impact">⚡ {{ article.impact }}</span>
+                        {% endif %}
+                    </a>
+                {% endfor %}
+                </div>
+            </div>
             {% endfor %}
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>货代日报 · 每日5分钟决策简报</p>
         </div>
-    </div>
-    {% endfor %}
-</section>
-{% endblock %}
+    </footer>
+</body>
+</html>

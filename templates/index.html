@@ -1,54 +1,153 @@
-{% extends "base.html" %}
-{% block title %}货代日报 - 国际物流航运每日动态 {{ today_display }}{% endblock %}
-{% block description %}{{ today_display }} 国际货代行业日报：航线运价、港口动态、政策解读、行业趋势一网打尽{% endblock %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ seo_title }} - 货代日报</title>
+    <meta name="description" content="{{ seo_description }}">
+    <meta name="keywords" content="{{ seo_keywords }}">
+    <link rel="canonical" href="{{ site_url }}/">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" href="/assets/favicon.ico">
+    <meta property="og:title" content="{{ seo_title }}">
+    <meta property="og:description" content="{{ seo_description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <link rel="alternate" type="application/rss+xml" title="货代日报 RSS" href="/rss.xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "货代日报",
+        "description": "国际货代每日决策简报",
+        "url": "{{ site_url }}"
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">🚢 货代日报</a>
+            <div class="nav-right">
+                <span class="nav-date">{{ today_display }}</span>
+                <a href="/archive.html">往期</a>
+                <a href="/about.html">关于</a>
+            </div>
+        </nav>
+    </header>
 
-{% block content %}
-<section class="hero">
-    <h1>🚢 货代日报</h1>
-    <p>国际物流航运每日动态 · AI 辅助生成</p>
-    <p class="hero-date">{{ today_display }}</p>
-</section>
+    <main class="container">
 
-{% if today_articles %}
-<section class="today-section">
-    <h2>📰 今日日报 ({{ today_display }})</h2>
-    <div class="article-grid">
-        {% for article in today_articles %}
-        <a href="/articles/{{ article.filename }}.html" class="article-card">
-            <span class="card-category">{{ article.category }}</span>
-            <h3>{{ article.title }}</h3>
-            <p>{{ article.summary }}</p>
-            <time>{{ article.date_display }}</time>
-        </a>
-        {% endfor %}
-    </div>
-</section>
-{% endif %}
+        <!-- 今日操作建议（最重要的放最前） -->
+        {% if brief and brief.action_summary %}
+        <section class="action-box">
+            <h2>💡 今日操作建议</h2>
+            <div class="action-items">
+                {% for item in brief.action_summary %}
+                <div class="action-item">{{ item }}</div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
 
-{% if recent_articles %}
-<section class="recent-section">
-    <h2>📋 近期文章</h2>
-    <div class="article-list">
-        {% for article in recent_articles %}
-        <a href="/articles/{{ article.filename }}.html" class="article-row">
-            <time>{{ article.date_display }}</time>
-            <span class="row-category">{{ article.category }}</span>
-            <h3>{{ article.title }}</h3>
-        </a>
-        {% endfor %}
-    </div>
-</section>
-{% endif %}
+        <div class="dashboard">
 
-<section class="categories">
-    <h2>📊 分类</h2>
-    <div class="cat-grid">
-        <a href="#" class="cat-card">🚢 海运运价</a>
-        <a href="#" class="cat-card">✈️ 空运动态</a>
-        <a href="#" class="cat-card">🏭 港口拥堵</a>
-        <a href="#" class="cat-card">📋 报关政策</a>
-        <a href="#" class="cat-card">🌍 航线变动</a>
-        <a href="#" class="cat-card">📈 行业趋势</a>
-    </div>
-</section>
-{% endblock %}
+            <!-- 运价风向 -->
+            {% if brief and brief.rate_snapshot %}
+            <section class="card rates-card">
+                <h2>📊 运价风向</h2>
+                <table class="rate-table">
+                    <thead>
+                        <tr><th>航线</th><th>方向</th><th>说明</th></tr>
+                    </thead>
+                    <tbody>
+                    {% for r in brief.rate_snapshot %}
+                    <tr>
+                        <td class="route-name">{{ r.route }}</td>
+                        <td class="rate-dir rate-{{ r.direction }}">{{ r.direction }}</td>
+                        <td class="rate-note">{{ r.note }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <p class="card-footer">基于SCFI周度数据 · 每周五更新</p>
+            </section>
+            {% endif %}
+
+            <!-- 船司动态 -->
+            {% if brief and brief.carrier_updates %}
+            <section class="card carrier-card">
+                <h2>🚢 船司动态</h2>
+                <ul class="brief-list">
+                {% for item in brief.carrier_updates %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+            <!-- 港口预警 -->
+            {% if brief and brief.port_alerts %}
+            <section class="card port-card">
+                <h2>🏭 港口动态</h2>
+                <ul class="brief-list">
+                {% for item in brief.port_alerts %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+        </div>
+
+        <!-- 深度文章 -->
+        {% if today_articles %}
+        <section class="deep-section">
+            <h2>📋 今日深度</h2>
+            <div class="article-grid">
+                {% for article in today_articles %}
+                <a href="/articles/{{ article.filename }}.html" class="article-card">
+                    <div class="card-top">
+                        <span class="card-cat">{{ article.category }}</span>
+                        {% if article.impact %}
+                        <span class="card-impact">{{ article.impact }}</span>
+                        {% endif %}
+                    </div>
+                    <h3>{{ article.title }}</h3>
+                    <p class="card-summary">{{ article.summary }}</p>
+                    {% if article.action_tip %}
+                    <div class="card-action">💡 {{ article.action_tip }}</div>
+                    {% endif %}
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- 历史简报 -->
+        {% if recent_briefs %}
+        <section class="history-section">
+            <h2>📅 历史简报</h2>
+            <div class="history-list">
+                {% for rb in recent_briefs %}
+                <div class="history-row">
+                    <span class="history-date">{{ rb.date_display }}</span>
+                    <span class="history-actions">{{ rb.action_summary | join('；') }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>货代日报 · 每日5分钟决策简报 · AI辅助生成</p>
+            <p class="disclaimer">本站内容仅供参考，不构成任何商业决策建议</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,52 +1,106 @@
-{% extends "base.html" %}
-{% block title %}{{ seo_title }} - 货代日报{% endblock %}
-{% block description %}{{ seo_description }}{% endblock %}
-{% block keywords %}{{ seo_keywords }}{% endblock %}
-{% block canonical %}{{ page_url }}{% endblock %}
-{% block og_title %}{{ seo_title }}{% endblock %}
-{% block og_desc %}{{ seo_description }}{% endblock %}
-{% block og_type %}article{% endblock %}
-{% block schema_type %}Article{% endblock %}
-{% block schema_url %}{{ page_url }}{% endblock %}
-{% block schema_extra %}
-,
-        "headline": "{{ seo_title }}",
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ seo_title }} - 货代日报</title>
+    <meta name="description" content="{{ seo_description }}">
+    <meta name="keywords" content="{{ seo_keywords }}">
+    <link rel="canonical" href="{{ site_url }}/articles/{{ filename }}.html">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta property="og:title" content="{{ seo_title }}">
+    <meta property="og:description" content="{{ seo_description }}">
+    <meta property="og:type" content="article">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ title }}",
         "datePublished": "{{ date_iso }}",
-        "dateModified": "{{ date_iso }}",
         "author": {"@type": "Organization", "name": "货代日报"},
         "publisher": {"@type": "Organization", "name": "货代日报"}
-{% endblock %}
-
-{% block content %}
-<article class="article-detail">
-    <header class="article-header">
-        <div class="article-meta">
-            <time datetime="{{ date_iso }}">{{ date_display }}</time>
-            <span class="tag">{{ category }}</span>
-        </div>
-        <h1>{{ title }}</h1>
-        <p class="article-summary">{{ summary }}</p>
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">🚢 货代日报</a>
+            <div class="nav-right">
+                <span class="nav-date">{{ date_display }}</span>
+                <a href="/">首页</a>
+                <a href="/archive.html">往期</a>
+            </div>
+        </nav>
     </header>
 
-    <div class="article-body">
-        {{ body_html | safe }}
-    </div>
+    <main class="container">
+        <article class="article-detail">
+            <!-- 顶部：30秒结论 -->
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="card-cat">{{ category }}</span>
+                    <time>{{ date_display }}</time>
+                </div>
+                <h1>{{ title }}</h1>
+            </header>
 
-    {% if tags %}
-    <div class="article-tags">
-        {% for tag in tags %}
-        <span class="tag-item">#{{ tag }}</span>
-        {% endfor %}
-    </div>
-    {% endif %}
+            <!-- 货代影响（核心差异化） -->
+            {% if impact %}
+            <div class="impact-box">
+                <h3>⚡ 对货代的影响（30秒看懂）</h3>
+                <div class="impact-content">{{ impact }}</div>
+            </div>
+            {% endif %}
 
-    <nav class="article-nav">
-        {% if prev_article %}
-        <a href="/articles/{{ prev_article }}.html" class="nav-prev">← 上一篇</a>
-        {% endif %}
-        {% if next_article %}
-        <a href="/articles/{{ next_article }}.html" class="nav-next">下一篇 →</a>
-        {% endif %}
-    </nav>
-</article>
-{% endblock %}
+            <!-- 操作建议 -->
+            {% if action_tip %}
+            <div class="action-tip-box">
+                <h3>💡 操作建议</h3>
+                <div class="action-tip-content">{{ action_tip }}</div>
+            </div>
+            {% endif %}
+
+            <!-- 正文 -->
+            <div class="article-body">
+                {{ body_html | safe }}
+            </div>
+
+            <!-- 标签 -->
+            {% if tags %}
+            <div class="article-tags">
+                {% for tag in tags %}
+                <span class="tag-item">#{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- 反馈按钮 -->
+            <div class="feedback">
+                <span>这篇文章对你有用吗？</span>
+                <button class="fb-btn fb-useful" onclick="sendFeedback('useful','{{ filename }}')">👍 有用</button>
+                <button class="fb-btn fb-outdated" onclick="sendFeedback('outdated','{{ filename }}')">⏰ 过时了</button>
+            </div>
+
+            <nav class="article-nav">
+                {% if prev_article %}
+                <a href="/articles/{{ prev_article }}.html" class="nav-prev">← 上一篇</a>
+                {% endif %}
+                <a href="/" class="nav-home">返回首页</a>
+                {% if next_article %}
+                <a href="/articles/{{ next_article }}.html" class="nav-next">下一篇 →</a>
+                {% endif %}
+            </nav>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>货代日报 · 每日5分钟决策简报 · AI辅助生成</p>
+            <p class="disclaimer">本站内容仅供参考，不构成任何商业决策建议</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
