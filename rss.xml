@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>货代日报 - 国际物流航运每日动态</title>
+    <link>https://freight-daily.vercel.app</link>
+    <description>国际货代行业每日动态：航线运价、港口拥堵、政策解读、行业趋势</description>
+    <language>zh-CN</language>
+    <atom:link href="https://freight-daily.vercel.app/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+        <title>2025中国造船新订单：Ardmore追加芜湖船厂成品油轮</title>
+        <link>https://freight-daily.vercel.app/articles/20260618-2025中国造船新订单-Ardmore追加芜湖船厂成品油轮.html</link>
+        <description>爱尔兰成品油轮船东Ardmore Shipping行使其在芜湖造船厂的期权，追加2艘40500载重吨成品油和化学品船订单，使其在该船厂的新造船总数进一步扩大。中国船厂凭借性价比优势和交付可靠性，正吸引越来越多国际船东下单。</description>
+        <pubDate>Thu, 18 Jun 2026 09:16:45 +0800</pubDate>
+        <guid>https://freight-daily.vercel.app/articles/20260618-2025中国造船新订单-Ardmore追加芜湖船厂成品油轮.html</guid>
+        <category>海运运价</category>
+    </item>
+    
+    <item>
+        <title>2025航运投资转向：Easterly清仓油轮转战干散货</title>
+        <link>https://freight-daily.vercel.app/articles/20260618-2025航运投资转向-Easterly清仓油轮转战干散货.html</link>
+        <description>海事投资平台Easterly Clear Ocean完成了首只基金7艘化学品油轮的全部处置，正式转向新造化学品船和干散货船投资。这一转向折射出资本对干散货板块的偏好上升，以及老旧油轮资产在环保新规下的估值压力。</description>
+        <pubDate>Thu, 18 Jun 2026 09:16:45 +0800</pubDate>
+        <guid>https://freight-daily.vercel.app/articles/20260618-2025航运投资转向-Easterly清仓油轮转战干散货.html</guid>
+        <category>行业趋势</category>
+    </item>
+    
+    <item>
+        <title>2025VLCC租船纠纷升级：Hunter Group启动伦敦仲裁</title>
+        <link>https://freight-daily.vercel.app/articles/20260618-2025VLCC租船纠纷升级-Hunter-Group启动伦.html</link>
+        <description>挪威船东Hunter Group因长期租船方拖欠约2820万美元租金而启动伦敦仲裁程序。此案揭示了当前油轮市场中租船方违约风险上升的趋势，对货代企业的租船业务风控具有警示意义。</description>
+        <pubDate>Thu, 18 Jun 2026 09:16:45 +0800</pubDate>
+        <guid>https://freight-daily.vercel.app/articles/20260618-2025VLCC租船纠纷升级-Hunter-Group启动伦.html</guid>
+        <category>航线变动</category>
+    </item>
+    
+    <item>
+        <title>2025集装箱运价风向标：从SCFI看全球贸易冷暖</title>
+        <link>https://freight-daily.vercel.app/articles/20260618-2025集装箱运价风向标-从SCFI看全球贸易冷暖.html</link>
+        <description>经济学家越来越多地通过集装箱运价来衡量全球贸易健康度。上海出口集装箱运价指数(SCFI)的波动不仅是航运市场的晴雨表，更是制造业景气度、消费需求和供应链韧性的综合反映。</description>
+        <pubDate>Thu, 18 Jun 2026 09:16:45 +0800</pubDate>
+        <guid>https://freight-daily.vercel.app/articles/20260618-2025集装箱运价风向标-从SCFI看全球贸易冷暖.html</guid>
+        <category>行业趋势</category>
+    </item>
+    
+    <item>
+        <title>2025年干散货并购加速：Diana第四次加码收购Genco Shipping</title>
+        <link>https://freight-daily.vercel.app/articles/20260618-2025年干散货并购加速-Diana第四次加码收购Genco.html</link>
+        <description>希腊船东Diana Shipping第四次提高对Genco Shipping的收购报价，加入股票成分后每股估值达27.34美元。这场持续数月的并购拉锯战折射出干散货航运业整合加速的大趋势，对货代企业意味着运力集中化与议价格局重塑。</description>
+        <pubDate>Thu, 18 Jun 2026 09:16:45 +0800</pubDate>
+        <guid>https://freight-daily.vercel.app/articles/20260618-2025年干散货并购加速-Diana第四次加码收购Genco.html</guid>
+        <category>海运运价</category>
+    </item>
+    
+</channel>
+</rss>

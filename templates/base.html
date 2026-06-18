@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    <title>{% block title %}货代日报{% endblock %}</title>
+    {% endblock %}
+    <meta name="description" content="{% block description %}国际货代行业每日动态，航线运价、港口拥堵、政策解读一网打尽{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}货代,国际物流,航运日报,运价,港口,报关,海运,空运{% endblock %}">
+    <link rel="canonical" href="{% block canonical %}{% endblock %}">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" href="/assets/favicon.ico">
+    <!-- Open Graph -->
+    <meta property="og:title" content="{% block og_title %}货代日报{% endblock %}">
+    <meta property="og:description" content="{% block og_desc %}国际货代行业每日动态{% endblock %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:locale" content="zh_CN">
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "{% block schema_type %}WebSite{% endblock %}",
+        "name": "货代日报",
+        "description": "国际货代行业每日动态",
+        "url": "{% block schema_url %}{% endblock %}"
+        {% block schema_extra %}{% endblock %}
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">🚢 货代日报</a>
+            <div class="nav-links">
+                <a href="/">首页</a>
+                <a href="/archive.html">往期</a>
+                <a href="/about.html">关于</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {{ year }} 货代日报 · 每日自动生成，AI 辅助撰写</p>
+            <p class="disclaimer">本站内容仅供参考，不构成任何商业决策建议</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

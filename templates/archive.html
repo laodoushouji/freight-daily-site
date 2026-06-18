@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}往期日报 - 货代日报{% endblock %}
+
+{% block content %}
+<section class="archive">
+    <h1>📋 往期日报</h1>
+    {% for date_group in archive %}
+    <div class="archive-group">
+        <h2>{{ date_group.date_display }}</h2>
+        <div class="article-list">
+            {% for article in date_group.articles %}
+            <a href="/articles/{{ article.filename }}.html" class="article-row">
+                <span class="row-category">{{ article.category }}</span>
+                <h3>{{ article.title }}</h3>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

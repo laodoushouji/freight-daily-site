@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ seo_title }} - 货代日报{% endblock %}
+{% block description %}{{ seo_description }}{% endblock %}
+{% block keywords %}{{ seo_keywords }}{% endblock %}
+{% block canonical %}{{ page_url }}{% endblock %}
+{% block og_title %}{{ seo_title }}{% endblock %}
+{% block og_desc %}{{ seo_description }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block schema_type %}Article{% endblock %}
+{% block schema_url %}{{ page_url }}{% endblock %}
+{% block schema_extra %}
+,
+        "headline": "{{ seo_title }}",
+        "datePublished": "{{ date_iso }}",
+        "dateModified": "{{ date_iso }}",
+        "author": {"@type": "Organization", "name": "货代日报"},
+        "publisher": {"@type": "Organization", "name": "货代日报"}
+{% endblock %}
+
+{% block content %}
+<article class="article-detail">
+    <header class="article-header">
+        <div class="article-meta">
+            <time datetime="{{ date_iso }}">{{ date_display }}</time>
+            <span class="tag">{{ category }}</span>
+        </div>
+        <h1>{{ title }}</h1>
+        <p class="article-summary">{{ summary }}</p>
+    </header>
+
+    <div class="article-body">
+        {{ body_html | safe }}
+    </div>
+
+    {% if tags %}
+    <div class="article-tags">
+        {% for tag in tags %}
+        <span class="tag-item">#{{ tag }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <nav class="article-nav">
+        {% if prev_article %}
+        <a href="/articles/{{ prev_article }}.html" class="nav-prev">← 上一篇</a>
+        {% endif %}
+        {% if next_article %}
+        <a href="/articles/{{ next_article }}.html" class="nav-next">下一篇 →</a>
+        {% endif %}
+    </nav>
+</article>
+{% endblock %}

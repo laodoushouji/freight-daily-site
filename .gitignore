@@ -1,0 +1,28 @@
+# Dependencies
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# Temp files
+*.tmp
+*.bak
+*~
+
+# Python venv
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Env
+.env
+.env.local
+
+# Articles index (built, not source)
+# We keep _index.json in the repo for Vercel to serve

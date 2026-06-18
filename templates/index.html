@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}货代日报 - 国际物流航运每日动态 {{ today_display }}{% endblock %}
+{% block description %}{{ today_display }} 国际货代行业日报：航线运价、港口动态、政策解读、行业趋势一网打尽{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>🚢 货代日报</h1>
+    <p>国际物流航运每日动态 · AI 辅助生成</p>
+    <p class="hero-date">{{ today_display }}</p>
+</section>
+
+{% if today_articles %}
+<section class="today-section">
+    <h2>📰 今日日报 ({{ today_display }})</h2>
+    <div class="article-grid">
+        {% for article in today_articles %}
+        <a href="/articles/{{ article.filename }}.html" class="article-card">
+            <span class="card-category">{{ article.category }}</span>
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.summary }}</p>
+            <time>{{ article.date_display }}</time>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if recent_articles %}
+<section class="recent-section">
+    <h2>📋 近期文章</h2>
+    <div class="article-list">
+        {% for article in recent_articles %}
+        <a href="/articles/{{ article.filename }}.html" class="article-row">
+            <time>{{ article.date_display }}</time>
+            <span class="row-category">{{ article.category }}</span>
+            <h3>{{ article.title }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section class="categories">
+    <h2>📊 分类</h2>
+    <div class="cat-grid">
+        <a href="#" class="cat-card">🚢 海运运价</a>
+        <a href="#" class="cat-card">✈️ 空运动态</a>
+        <a href="#" class="cat-card">🏭 港口拥堵</a>
+        <a href="#" class="cat-card">📋 报关政策</a>
+        <a href="#" class="cat-card">🌍 航线变动</a>
+        <a href="#" class="cat-card">📈 行业趋势</a>
+    </div>
+</section>
+{% endblock %}
