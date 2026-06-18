@@ -1,148 +1,281 @@
 #!/usr/bin/env python3
 """
-货代日报 - 站点构建器 v2
-支持：日报简报(brief) + 深度文章(articles) + 首页信息面板
+站点构建器 v3 — build_site.py
+
+支持：简报面板 + 深度文章双模式渲染
+输出：index.html, articles/*.html, archive.html, sitemap.xml, rss.xml
 """
 
 import json
-import sys
 import os
-import glob
+import sys
 import re
 from datetime import datetime
-from jinja2 import Environment, FileSystemLoader
+from pathlib import Path
+from typing import Optional
 
-SITE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATES_DIR = os.path.join(SITE_DIR, "templates")
-ARTICLES_DIR = os.path.join(SITE_DIR, "articles")
-BRIEFS_DIR = os.path.join(SITE_DIR, "briefs")
-SITE_URL = os.environ.get("SITE_URL", "https://freight-daily-site.vercel.app")
+try:
+    from jinja2 import Environment, FileSystemLoader
+except ImportError:
+    print("需要 jinja2: pip3 install jinja2")
+    sys.exit(1)
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = PROJECT_ROOT / "templates"
+ARTICLES_DIR = PROJECT_ROOT / "articles"
+BRIEFS_DIR = PROJECT_ROOT / "briefs"
+OUTPUT_DIR = PROJECT_ROOT  # 静态文件输出到项目根目录
 
 
-def load_articles_index():
-    index_path = os.path.join(ARTICLES_DIR, "_index.json")
-    if os.path.exists(index_path):
-        with open(index_path, "r", encoding="utf-8") as f:
+def load_json(path: Path) -> Optional[dict]:
+    if not path.exists():
+        return None
+    try:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
-    return []
+    except (json.JSONDecodeError, IOError):
+        return None
 
 
-def save_articles_index(index):
-    index_path = os.path.join(ARTICLES_DIR, "_index.json")
-    with open(index_path, "w", encoding="utf-8") as f:
-        json.dump(index, f, ensure_ascii=False, indent=2)
+def slugify(text: str) -> str:
+    """生成 URL 友好的 slug"""
+    # 移除特殊字符，保留中文、字母、数字、连字符
+    slug = re.sub(r'[^\w\u4e00-\u9fff-]', '-', text)
+    slug = re.sub(r'-+', '-', slug).strip('-')
+    return slug[:60]
 
 
-def load_briefs():
-    """加载所有简报，按日期降序"""
-    briefs = []
-    if not os.path.exists(BRIEFS_DIR):
-        return briefs
-    for fp in glob.glob(os.path.join(BRIEFS_DIR, "*.json")):
-        with open(fp, "r", encoding="utf-8") as f:
-            briefs.append(json.load(f))
-    briefs.sort(key=lambda x: x.get("date", ""), reverse=True)
-    return briefs
+def get_latest_brief() -> Optional[dict]:
+    """获取最新简报"""
+    if not BRIEFS_DIR.exists():
+        return None
+    brief_files = sorted(BRIEFS_DIR.glob("*.json"))
+    if not brief_files:
+        return None
+    return load_json(brief_files[-1])
 
 
-def build_site():
-    env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
-    today = datetime.now()
-    today_str = today.strftime("%Y-%m-%d")
+def get_all_articles() -> list:
+    """获取所有已生成的文章"""
+    index = load_json(ARTICLES_DIR / "_index.json")
+    if not index:
+        return []
+    articles = index if isinstance(index, list) else index.get("articles", [])
 
-    # Load data
-    index = load_articles_index()
-    briefs = load_briefs()
-    today_brief = next((b for b in briefs if b.get("date") == today_str), briefs[0] if briefs else None)
+    result = []
+    for a in articles:
+        # 加载文章详情
+        article_id = a.get("id", "")
+        if not article_id:
+            continue
+        # 查找对应的 JSON 文件
+        date_prefix = article_id[:8]
+        matches = list(ARTICLES_DIR.glob(f"{date_prefix}*.json"))
+        matches = [m for m in matches if m.name != "_index.json"]
 
-    # === Render article pages ===
-    article_template = env.get_template("article.html")
-    for i, entry in enumerate(index):
-        prev_article = index[i + 1]["filename"] if i + 1 < len(index) else None
-        next_article = index[i - 1]["filename"] if i > 0 else None
+        for mf in matches:
+            detail = load_json(mf)
+            if detail and detail.get("id") == article_id:
+                a.update(detail)
+                a["filename"] = mf.stem + ".html"
+                break
 
-        html = article_template.render(
-            title=entry["title"],
-            seo_title=entry.get("seo_title", entry["title"]),
-            seo_description=entry.get("summary", ""),
-            seo_keywords=entry.get("keywords", ""),
-            site_url=SITE_URL,
-            filename=entry["filename"],
-            date_display=entry.get("date_display", ""),
-            date_iso=entry.get("date_iso", ""),
-            category=entry.get("category", ""),
-            impact=entry.get("impact", ""),
-            action_tip=entry.get("action_tip", ""),
-            body_html=entry.get("body_html", ""),
-            tags=entry.get("tags", []),
-            prev_article=prev_article,
-            next_article=next_article,
+        if a.get("generated") or a.get("body"):
+            result.append(a)
+
+    return result
+
+
+def build_index(brief: Optional[dict], articles: list):
+    """构建首页"""
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
+    template = env.get_template("index.html")
+
+    # 确定首页日期
+    date_display = brief.get("date_display", datetime.now().strftime("%Y年%m月%d日")) if brief else datetime.now().strftime("%Y年%m月%d日")
+    date_str = brief.get("date", datetime.now().strftime("%Y-%m-%d")) if brief else datetime.now().strftime("%Y-%m-%d")
+
+    # 运价快照
+    rate_snapshot = brief.get("rate_snapshot", []) if brief else []
+
+    # 船司动态
+    carrier_updates = brief.get("carrier_updates", []) if brief else []
+
+    # 港口动态
+    port_alerts = brief.get("port_alerts", []) if brief else []
+
+    # 操作建议
+    action_summary = brief.get("action_summary", []) if brief else []
+
+    # 深度文章
+    deep_articles = []
+    for a in articles[:5]:
+        deep_articles.append({
+            "id": a.get("id", ""),
+            "title": a.get("seo_title", a.get("title", "")),
+            "impact": a.get("impact", ""),
+            "action_tip": a.get("action_tip", ""),
+            "tags": a.get("tags", []),
+            "filename": a.get("filename", slugify(a.get("seo_title", "article")) + ".html"),
+            "date": a.get("date", date_str),
+        })
+
+    html = template.render(
+        date_display=date_display,
+        seo_title=f"货代日报 {date_display} — 运价风向·船司动态·港口预警",
+        rate_snapshot=rate_snapshot,
+        carrier_updates=carrier_updates,
+        port_alerts=port_alerts,
+        action_summary=action_summary,
+        articles=deep_articles,
+        brief_date=date_str,
+    )
+
+    out_path = OUTPUT_DIR / "index.html"
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"  ✅ index.html")
+
+
+def build_article_pages(articles: list):
+    """构建文章详情页"""
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
+    template = env.get_template("article.html")
+
+    for a in articles:
+        title = a.get("seo_title", a.get("title", "货代日报"))
+        date = a.get("date", "")
+        date_display = a.get("date_display", date)
+        impact = a.get("impact", "")
+        action_tip = a.get("action_tip", "")
+        body = a.get("body", "")
+        tags = a.get("tags", [])
+
+        if not body:
+            continue
+
+        filename = a.get("filename", slugify(title) + ".html")
+
+        html = template.render(
+            title=title,
+            date_display=date_display,
+            seo_title=f"{title} - 货代日报",
+            impact=impact,
+            action_tip=action_tip,
+            body=body,
+            tags=tags,
+            article_date=date,
         )
-        path = os.path.join(ARTICLES_DIR, f"{entry['filename']}.html")
-        with open(path, "w", encoding="utf-8") as f:
+
+        out_path = OUTPUT_DIR / "articles" / filename
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(out_path, "w", encoding="utf-8") as f:
             f.write(html)
 
-    # === Render index (dashboard) ===
-    today_articles = [a for a in index if a.get("date") == today_str]
-    # If no articles today, show latest
-    if not today_articles:
-        today_articles = index[:3]
+    print(f"  ✅ {sum(1 for a in articles if a.get('body'))} article pages")
 
-    recent_briefs = briefs[1:8] if len(briefs) > 1 else []
 
-    index_html = env.get_template("index.html").render(
-        today_display=today.strftime("%Y年%m月%d日"),
-        seo_title=f"货代日报 {today.strftime('%m月%d日')} - 运价风向·船司动态·港口预警",
-        seo_description=f"{today.strftime('%m月%d日')}货代日报：运价走势、船司GRI/空班、港口拥堵、操作建议，5分钟看完今日关键信息",
-        seo_keywords="货代日报,运价,SCFI,GRI,港口拥堵,船司动态,海运",
-        site_url=SITE_URL,
-        brief=today_brief,
-        today_articles=today_articles,
-        recent_briefs=recent_briefs,
+def build_archive(articles: list):
+    """构建归档页"""
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
+    template = env.get_template("archive.html")
+
+    # 按日期分组
+    by_date = {}
+    for a in articles:
+        d = a.get("date", "unknown")
+        if d not in by_date:
+            by_date[d] = []
+        by_date[d].append(a)
+
+    html = template.render(
+        seo_title="往期日报 - 货代日报",
+        articles_by_date=sorted(by_date.items(), reverse=True),
     )
-    with open(os.path.join(SITE_DIR, "index.html"), "w", encoding="utf-8") as f:
-        f.write(index_html)
 
-    # === Render archive ===
-    archive = {}
-    for a in index:
-        date_key = a.get("date", "unknown")
-        if date_key not in archive:
-            # Find matching brief
-            match_brief = next((b for b in briefs if b.get("date") == date_key), None)
-            archive[date_key] = {
-                "date_display": a.get("date_display", date_key),
-                "articles": [],
-                "action_summary": match_brief.get("action_summary", []) if match_brief else [],
-            }
-        archive[date_key]["articles"].append(a)
+    out_path = OUTPUT_DIR / "archive.html"
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"  ✅ archive.html")
 
-    archive_list = sorted(archive.values(), key=lambda x: x["date_display"], reverse=True)
 
-    archive_html = env.get_template("archive.html").render(archive=archive_list)
-    with open(os.path.join(SITE_DIR, "archive.html"), "w", encoding="utf-8") as f:
-        f.write(archive_html)
+def build_sitemap(articles: list, brief: Optional[dict]):
+    """构建 sitemap.xml"""
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
 
-    # === Sitemap ===
-    urls = [{"loc": SITE_URL, "lastmod": today_str, "priority": "1.0"}]
-    for a in index:
-        urls.append({"loc": f"{SITE_URL}/articles/{a['filename']}.html", "lastmod": a.get("date", today_str), "priority": "0.8"})
-    urls.append({"loc": f"{SITE_URL}/archive.html", "lastmod": today_str, "priority": "0.6"})
+    base = "https://freight-daily-site.vercel.app"
 
-    sitemap_xml = env.get_template("sitemap.xml").render(urls=urls)
-    with open(os.path.join(SITE_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
-        f.write(sitemap_xml)
+    # 首页
+    lines.append(f"  <url><loc>{base}/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>")
 
-    # === RSS ===
-    rss_articles = index[:20]
-    rss_xml = env.get_template("rss.xml").render(site_url=SITE_URL, articles=rss_articles)
-    with open(os.path.join(SITE_DIR, "rss.xml"), "w", encoding="utf-8") as f:
-        f.write(rss_xml)
+    # 文章
+    for a in articles:
+        if a.get("body"):
+            filename = a.get("filename", slugify(a.get("seo_title", "")) + ".html")
+            d = a.get("date", "")
+            lines.append(f'  <url><loc>{base}/articles/{filename}</loc><lastmod>{d}</lastmod><priority>0.8</priority></url>')
 
-    print(f"Built: {len(today_articles)} articles, brief={'yes' if today_brief else 'no'}, {len(index)} total")
-    return len(today_articles)
+    # 归档
+    lines.append(f"  <url><loc>{base}/archive.html</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>")
+
+    lines.append('</urlset>')
+
+    with open(OUTPUT_DIR / "sitemap.xml", "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    print(f"  ✅ sitemap.xml")
+
+
+def build_rss(articles: list, brief: Optional[dict]):
+    """构建 rss.xml"""
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    lines.append('<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">')
+    lines.append('  <channel>')
+    lines.append('    <title>货代日报 — 每日决策简报</title>')
+    lines.append('    <link>https://freight-daily-site.vercel.app</link>')
+    lines.append('    <description>运价风向·船司动态·港口预警·操作建议</description>')
+
+    for a in articles[:10]:
+        if a.get("body"):
+            title = a.get("seo_title", a.get("title", ""))
+            filename = a.get("filename", slugify(title) + ".html")
+            d = a.get("date", "")
+            lines.append(f'    <item>')
+            lines.append(f'      <title>{title}</title>')
+            lines.append(f'      <link>https://freight-daily-site.vercel.app/articles/{filename}</link>')
+            lines.append(f'      <pubDate>{d}</pubDate>')
+            lines.append(f'    </item>')
+
+    lines.append('  </channel>')
+    lines.append('</rss>')
+
+    with open(OUTPUT_DIR / "rss.xml", "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    print(f"  ✅ rss.xml")
+
+
+def main():
+    print(f"🔨 站点构建 — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print("=" * 50)
+
+    # 加载数据
+    brief = get_latest_brief()
+    articles = get_all_articles()
+
+    brief_status = "yes" if brief else "no"
+    article_count = len(articles)
+    print(f"  简报: {brief_status}, 文章: {article_count}")
+
+    # 构建
+    build_index(brief, articles)
+    build_article_pages(articles)
+    build_archive(articles)
+    build_sitemap(articles, brief)
+    build_rss(articles, brief)
+
+    print(f"\n──────────────────────────────────────────────────")
+    print(f"✅ 构建完成: {article_count} articles, brief={brief_status}")
 
 
 if __name__ == "__main__":
-    count = build_site()
-    print(f"Done. {count} articles published today.")
+    main()

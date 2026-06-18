@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ seo_title }} - 货代日报</title>
-    <meta name="description" content="{{ seo_description }}">
-    <meta name="keywords" content="{{ seo_keywords }}">
-    <link rel="canonical" href="{{ site_url }}/articles/{{ filename }}.html">
+    <title>{{ seo_title }}</title>
+    <meta name="description" content="{{ title }} — 货代日报深度分析">
+    <meta name="keywords" content="{{ tags | join(',') }},货代日报">
+    <link rel="canonical" href="https://freight-daily-site.vercel.app/">
     <link rel="stylesheet" href="/assets/css/style.css">
     <meta property="og:title" content="{{ seo_title }}">
-    <meta property="og:description" content="{{ seo_description }}">
+    <meta property="og:description" content="{{ title }}">
     <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "{{ title }}",
-        "datePublished": "{{ date_iso }}",
-        "author": {"@type": "Organization", "name": "货代日报"},
-        "publisher": {"@type": "Organization", "name": "货代日报"}
+        "datePublished": "{{ article_date }}",
+        "author": { "@type": "Organization", "name": "货代日报" }
     }
     </script>
 </head>
@@ -27,70 +27,48 @@
         <nav class="container">
             <a href="/" class="logo">🚢 货代日报</a>
             <div class="nav-right">
-                <span class="nav-date">{{ date_display }}</span>
                 <a href="/">首页</a>
                 <a href="/archive.html">往期</a>
             </div>
         </nav>
     </header>
 
-    <main class="container">
-        <article class="article-detail">
-            <!-- 顶部：30秒结论 -->
-            <header class="article-header">
-                <div class="article-meta">
-                    <span class="card-cat">{{ category }}</span>
-                    <time>{{ date_display }}</time>
-                </div>
-                <h1>{{ title }}</h1>
-            </header>
+    <main class="container article-page">
+        <article>
+            <h1>{{ title }}</h1>
+            <p class="article-meta">{{ date_display }}</p>
 
-            <!-- 货代影响（核心差异化） -->
             {% if impact %}
-            <div class="impact-box">
-                <h3>⚡ 对货代的影响（30秒看懂）</h3>
+            <section class="impact-box">
+                <h2>⚡ 对货代的影响（30秒看懂）</h2>
                 <div class="impact-content">{{ impact }}</div>
-            </div>
+            </section>
             {% endif %}
 
-            <!-- 操作建议 -->
             {% if action_tip %}
-            <div class="action-tip-box">
-                <h3>💡 操作建议</h3>
+            <section class="action-tip-box">
+                <h2>💡 操作建议</h2>
                 <div class="action-tip-content">{{ action_tip }}</div>
-            </div>
+            </section>
             {% endif %}
 
-            <!-- 正文 -->
-            <div class="article-body">
-                {{ body_html | safe }}
-            </div>
+            <section class="article-body">
+                {{ body }}
+            </section>
 
-            <!-- 标签 -->
             {% if tags %}
             <div class="article-tags">
                 {% for tag in tags %}
-                <span class="tag-item">#{{ tag }}</span>
+                <span class="tag">{{ tag }}</span>
                 {% endfor %}
             </div>
             {% endif %}
 
-            <!-- 反馈按钮 -->
-            <div class="feedback">
-                <span>这篇文章对你有用吗？</span>
-                <button class="fb-btn fb-useful" onclick="sendFeedback('useful','{{ filename }}')">👍 有用</button>
-                <button class="fb-btn fb-outdated" onclick="sendFeedback('outdated','{{ filename }}')">⏰ 过时了</button>
+            <div class="feedback-section">
+                <p>这篇文章对你有用吗？</p>
+                <button class="feedback-btn" onclick="sendFeedback('useful')">👍 有用</button>
+                <button class="feedback-btn" onclick="sendFeedback('outdated')">🕐 过时了</button>
             </div>
-
-            <nav class="article-nav">
-                {% if prev_article %}
-                <a href="/articles/{{ prev_article }}.html" class="nav-prev">← 上一篇</a>
-                {% endif %}
-                <a href="/" class="nav-home">返回首页</a>
-                {% if next_article %}
-                <a href="/articles/{{ next_article }}.html" class="nav-next">下一篇 →</a>
-                {% endif %}
-            </nav>
         </article>
     </main>
 
@@ -102,5 +80,20 @@
     </footer>
 
     <script src="/assets/js/main.js"></script>
+    <script>
+    function sendFeedback(type) {
+        var aid = '{{ article_date }}-{{ title | truncate(10) }}';
+        fetch('https://freight-daily-site.vercel.app/api/feedback', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({article: aid, feedback: type})
+        }).catch(function(){});
+        var btns = document.querySelectorAll('.feedback-btn');
+        btns.forEach(function(b){ b.disabled = true; b.style.opacity = 0.5; });
+        event.target.style.opacity = 1;
+        event.target.style.background = '#27ae60';
+        event.target.style.color = 'white';
+    }
+    </script>
 </body>
 </html>

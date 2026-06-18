@@ -1,0 +1,27 @@
+{
+  "date": "2026-06-18",
+  "feedback_analysis": {
+    "total_feedback": 0,
+    "useful": 0,
+    "outdated": 0,
+    "useful_rate": "0%",
+    "recommendation": "需要内容改进"
+  },
+  "content_mix": {
+    "total_articles": 3,
+    "type_distribution": {
+      "port_alert": 2,
+      "surcharge": 1
+    },
+    "recommendation": "建议增加话题多样性"
+  },
+  "title_strategy": {
+    "current_template": "关键词+数字+年份",
+    "收录率_estimate": "待数据（需Google Search Console接入）",
+    "recommendation": "保持当前标题格式，待30天后根据收录数据调整"
+  },
+  "next_actions": [
+    "反馈有用率低于50%，建议提升文章实用性",
+    "港口预警类文章过多，建议增加运价分析类"
+  ]
+}

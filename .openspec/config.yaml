@@ -1,0 +1,24 @@
+schema: spec-driven
+context: |
+  Project: 货代日报站 (Freight Forwarding Daily)
+  Tech Stack: Python 3 (scripts), Jinja2 (templates), HTML/CSS/JS (static site)
+  Hosting: Vercel (free tier), GitHub auto-deploy
+  AI Engine: Hermes Agent (cron 08:00 daily)
+  Current State: v1 已上线 https://freight-daily-site.vercel.app
+  - 5 篇旧文章（投资者新闻，非从业者视角）
+  - v2 首页已改为信息面板（运价+船司+港口+操作建议）
+  - briefs/2026-06-18.json 是手工填充的示例数据
+  - 无真实数据源接入
+  - 无用户反馈闭环
+  - 无自我迭代机制
+rules:
+  proposal:
+    - 必须包含回滚方案
+    - 必须识别受影响的用户群体
+  specs:
+    - 使用 WHEN/THEN 格式写场景
+    - 每条规格必须是可验证的行为
+  design:
+    - 包含数据流图
+    - 标注免费/付费数据源
+    - 零月费运营为硬约束

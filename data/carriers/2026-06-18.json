@@ -1,0 +1,26 @@
+{
+  "date": "2026-06-18",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "26 May 2026",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "12 Jun 2026",
+      "detail": "Maersk Operations through Strait of Hormuz"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "17 Jun 2026",
+      "detail": "Dry port Surcharge – Export/Import (DPS/DPI) - Split, HR & Sarajevo, BA to/from World"
+    }
+  ]
+}
