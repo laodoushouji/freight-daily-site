@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-26",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "23 Jun 2026",
+      "amount": "$3",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "19 Jun 2026",
+      "amount": "$3",
+      "detail": "Maersk Baltimore and time-charter vessel exit the Persian Gulf"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "25 Jun 2026",
+      "detail": "Implementation of Peak Season Surcharge (PSS) for F3W trade"
+    }
+  ]
+}
