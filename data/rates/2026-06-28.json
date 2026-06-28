@@ -1,0 +1,42 @@
+{
+  "date": "2026-06-28",
+  "source": "fallback",
+  "updated": false,
+  "routes": [
+    {
+      "route": "欧线",
+      "price": "$2,800/40HQ",
+      "change": "-$349",
+      "direction": "▼",
+      "index_value": 2350.5
+    },
+    {
+      "route": "美西",
+      "price": "$1,950/40HQ",
+      "change": "$0",
+      "direction": "→",
+      "index_value": 1820.3
+    },
+    {
+      "route": "美东",
+      "price": "$3,200/40HQ",
+      "change": "$0",
+      "direction": "→",
+      "index_value": 2890.1
+    },
+    {
+      "route": "东南亚",
+      "price": "$450/20GP",
+      "change": "$0",
+      "direction": "→",
+      "index_value": 420.0
+    },
+    {
+      "route": "中东",
+      "price": "$1,100/20GP",
+      "change": "-$2799",
+      "direction": "▼",
+      "index_value": 1050.7
+    }
+  ]
+}
