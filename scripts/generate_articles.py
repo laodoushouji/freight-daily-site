@@ -236,9 +236,9 @@ def main():
         article = create_article_json(topic, brief, date_str, i)
         articles.append(article)
 
-        # 保存单篇文章
+        # 保存单篇文章（slug 包含 article_id 防止碰撞）
         slug = article["seo_title"][:20].replace(" ", "-")
-        out_path = ARTICLES_DIR / f"{date_str.replace('-', '')}-{slug}.json"
+        out_path = ARTICLES_DIR / f"{date_str.replace('-', '')}-{i}-{slug}.json"
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(article, f, ensure_ascii=False, indent=2)
 

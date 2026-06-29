@@ -1,0 +1,88 @@
+{
+  "date": "2026-06-29",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "23 Jun 2026",
+      "amount": "$3",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "19 Jun 2026",
+      "amount": "$3",
+      "detail": "Planned Rail Infrastructure Works – Bremerhaven to Bremen (July–December 2027)"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "26 Jun 2026",
+      "detail": "Change to Emergency Contingency Surcharge    Indian Subcontinent to North Europe & Mediterranean (E3W & E4W)"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "中东",
+      "detail": "Middle East Situation Updates"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "其他",
+      "detail": "PSS - From China to Madagascar"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "其他",
+      "detail": "BAF update - Tunisia Roro service"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "美西",
+      "detail": "PSS - From India West Coast to South America East Coast"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "地中",
+      "detail": "PSS - From the Mediterranean to the Middle East and Red Sea"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "地中",
+      "detail": "FAK Rates - From the Mediterranean to the Middle East & Red Sea"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "地中",
+      "detail": "PSS - From the Mediterranean, Adriatic, Black Sea & North Africa to the Indian Subcontinent"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "欧线",
+      "detail": "PSS - From North Europe to the Middle East, Red Sea & Indian Subcontinent"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "欧线",
+      "detail": "PSS - From the Indian Subcontinent to North Europe, Mediterranean & North Africa"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "欧线",
+      "detail": "Hazardous Surcharge from Far East to Indian Ocean, South Africa & East Africa"
+    }
+  ]
+}
