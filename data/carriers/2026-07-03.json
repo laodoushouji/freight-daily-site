@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-03",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "空班",
+      "route": "欧线",
+      "effective": "2 Jul 2026",
+      "amount": "$3",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "空班",
+      "route": "欧线",
+      "effective": "1 Jul 2026",
+      "amount": "$3",
+      "detail": "UAE Advance Cargo Manifest Implementation- Operational Guidelines"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "美东",
+      "effective": "2 Jul 2026",
+      "detail": "Customer Advisory – Documentation Requirements & Applicable Charges (Rijeka to Serbia)"
+    }
+  ]
+}
