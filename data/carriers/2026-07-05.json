@@ -1,0 +1,43 @@
+{
+  "date": "2026-07-05",
+  "items": [
+    {
+      "carrier": "MSC",
+      "type": "GRI",
+      "route": "欧线",
+      "effective": "2026-07-05",
+      "amount": "+$300/40HQ",
+      "detail": "MSC GRI — 采集时外部数据源不可用，此为占位数据"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "美西",
+      "effective": "2026-07-05",
+      "amount": "+$200/40HQ",
+      "detail": "Maersk 旺季附加费 — 采集时外部数据源不可用，此为占位数据"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "空班",
+      "route": "欧线",
+      "effective": "2026-07-05",
+      "detail": "CMA CGM 空班通知 — 采集时外部数据源不可用，此为占位数据"
+    },
+    {
+      "carrier": "ONE",
+      "type": "GRI",
+      "route": "美东",
+      "effective": "2026-07-05",
+      "amount": "+$250/40HQ",
+      "detail": "ONE GRI — 采集时外部数据源不可用，此为占位数据"
+    },
+    {
+      "carrier": "COSCO",
+      "type": "新航线",
+      "route": "东南亚",
+      "effective": "2026-07-05",
+      "detail": "COSCO 新航线通知 — 采集时外部数据源不可用，此为占位数据"
+    }
+  ]
+}
