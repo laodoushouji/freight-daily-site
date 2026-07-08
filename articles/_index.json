@@ -1,6 +1,48 @@
 {
   "articles": [
     {
+      "id": "20260708-1",
+      "date": "2026-07-08",
+      "seo_title": "航运rate_change2026年07月：货代影响与建议",
+      "topic_type": "rate_change",
+      "generated": false
+    },
+    {
+      "id": "20260708-2",
+      "date": "2026-07-08",
+      "seo_title": "航运rate_change2026年07月：货代影响与建议",
+      "topic_type": "rate_change",
+      "generated": false
+    },
+    {
+      "id": "20260708-3",
+      "date": "2026-07-08",
+      "seo_title": "航运surcharge2026年07月：货代影响与建议",
+      "topic_type": "surcharge",
+      "generated": false
+    },
+    {
+      "id": "20260706-1",
+      "date": "2026-07-06",
+      "seo_title": "GRI涨价07月：2026年货代成本影响分析",
+      "topic_type": "gri",
+      "generated": false
+    },
+    {
+      "id": "20260706-2",
+      "date": "2026-07-06",
+      "seo_title": "GRI涨价07月：2026年货代成本影响分析",
+      "topic_type": "gri",
+      "generated": false
+    },
+    {
+      "id": "20260706-3",
+      "date": "2026-07-06",
+      "seo_title": "航运surcharge2026年07月：货代影响与建议",
+      "topic_type": "surcharge",
+      "generated": false
+    },
+    {
       "id": "20260705-1",
       "date": "2026-07-05",
       "seo_title": "GRI涨价07月：2026年货代成本影响分析",

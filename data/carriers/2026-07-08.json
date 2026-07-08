@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-08",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "3 Jul 2026",
+      "amount": "$3",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "2 Jul 2026",
+      "amount": "$3",
+      "detail": "Closure of Rail Combined Product (RCO) for Active Reefers to/from Hungary"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "东南亚",
+      "effective": "7 Jul 2026",
+      "detail": "Emergency Inland Fuel/Energy surcharge"
+    }
+  ]
+}
