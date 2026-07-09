@@ -1,0 +1,71 @@
+{
+  "date": "2026-07-09",
+  "ports": [
+    {
+      "port": "宁波",
+      "status": "运行正常",
+      "wait_days": "3-5",
+      "alert": false,
+      "reason": "",
+      "source": "rss",
+      "source_url": "https://www.freightwaves.com/feed",
+      "alternative": "",
+      "detail": "外部数据源不可用，使用默认数据"
+    },
+    {
+      "port": "上海",
+      "status": "运行正常",
+      "wait_days": "2-4",
+      "alert": false,
+      "reason": "",
+      "source": "rss",
+      "source_url": "https://www.freightwaves.com/feed",
+      "alternative": "",
+      "detail": "外部数据源不可用，使用默认数据"
+    },
+    {
+      "port": "洛杉矶",
+      "status": "正常运行",
+      "wait_days": "1-3",
+      "alert": false,
+      "reason": "",
+      "source": "port_website",
+      "source_url": "https://www.portoflosangeles.org/",
+      "alternative": "",
+      "detail": ""
+    },
+    {
+      "port": "鹿特丹",
+      "status": "运行正常",
+      "wait_days": "1-2",
+      "alert": false,
+      "reason": "",
+      "source": "port_website",
+      "source_url": "https://www.portofrotterdam.com/",
+      "alternative": "",
+      "detail": ""
+    },
+    {
+      "port": "巴生",
+      "status": "运行正常",
+      "wait_days": "2-3",
+      "alert": false,
+      "reason": "",
+      "source": "",
+      "source_url": "",
+      "alternative": "",
+      "detail": "外部数据源不可用，使用默认数据"
+    },
+    {
+      "port": "新加坡",
+      "status": "运行正常",
+      "wait_days": "1-2",
+      "alert": false,
+      "reason": "",
+      "source": "port_website",
+      "source_url": "https://www.mpa.gov.sg/",
+      "alternative": "",
+      "detail": ""
+    }
+  ]
+}

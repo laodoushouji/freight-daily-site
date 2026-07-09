@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-09",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "3 Jul 2026",
+      "amount": "$3",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "2 Jul 2026",
+      "amount": "$3",
+      "detail": "Maersk Operations through Strait of Hormuz"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "8 Jul 2026",
+      "detail": "Reefer Free Time Adjustment: World to DRC, Rwanda, Burundi, Uganda via Tanzania"
+    }
+  ]
+}
