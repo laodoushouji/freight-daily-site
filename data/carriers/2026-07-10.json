@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-10",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "3 Jul 2026",
+      "amount": "$3",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "9 Jul 2026",
+      "amount": "$3",
+      "detail": "Rail Network Disruptions effecting Rail Services to and from German Northports"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "其他",
+      "effective": "9 Jul 2026",
+      "detail": "Dry port Surcharge - Export (DPS) – Malur, IN to World"
+    }
+  ]
+}
