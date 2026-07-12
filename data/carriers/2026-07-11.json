@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-11",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "空班",
+      "route": "欧线",
+      "effective": "3 Jul 2026",
+      "amount": "$3",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "空班",
+      "route": "欧线",
+      "effective": "9 Jul 2026",
+      "amount": "$3",
+      "detail": "Lebanon Shipments: Consignee Tax Reference Number Mandatory"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "其他",
+      "effective": "9 Jul 2026",
+      "detail": "Dry port Surcharge - Export (DPS) – Malur, IN to World"
+    }
+  ]
+}
