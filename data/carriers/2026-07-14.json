@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-14",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "3 Jul 2026",
+      "amount": "$3",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "9 Jul 2026",
+      "amount": "$3",
+      "detail": "Egypt – New Customs Requirements for All Sea Export Cargo from Egypt: Unique Consignment Reference (UCR) under NAFEZA"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "13 Jul 2026",
+      "detail": "Change to Emergency Contingency Surcharge    Indian Subcontinent to North Europe & Mediterranean (E3W & E4W)"
+    }
+  ]
+}
