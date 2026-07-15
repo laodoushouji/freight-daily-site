@@ -1,6 +1,27 @@
 {
   "articles": [
     {
+      "id": "20260715-1",
+      "date": "2026-07-15",
+      "seo_title": "GRI涨价07月：2026年货代成本影响分析",
+      "topic_type": "gri",
+      "generated": false
+    },
+    {
+      "id": "20260715-2",
+      "date": "2026-07-15",
+      "seo_title": "GRI涨价07月：2026年货代成本影响分析",
+      "topic_type": "gri",
+      "generated": false
+    },
+    {
+      "id": "20260715-3",
+      "date": "2026-07-15",
+      "seo_title": "港口异常07月：2026年货代应对方案",
+      "topic_type": "port_alert",
+      "generated": false
+    },
+    {
       "id": "20260714-1",
       "date": "2026-07-14",
       "seo_title": "航运surcharge2026年07月：货代影响与建议",
