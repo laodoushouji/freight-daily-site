@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-17",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "16 Jul 2026",
+      "amount": "$100",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "15 Jul 2026",
+      "amount": "$100",
+      "detail": "Maersk Operations through Strait of Hormuz"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "16 Jul 2026",
+      "detail": "Fuel Surcharge update in Greece"
+    }
+  ]
+}
