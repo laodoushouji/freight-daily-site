@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-18",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "16 Jul 2026",
+      "amount": "$100",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "15 Jul 2026",
+      "amount": "$100",
+      "detail": "Milazzo Service Launch – Enhanced End-to-End Transport Solution"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "17 Jul 2026",
+      "detail": "Operational Cost Imports (OCI) for the scope: World to Ghana"
+    }
+  ]
+}
