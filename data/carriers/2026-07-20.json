@@ -1,0 +1,82 @@
+{
+  "date": "2026-07-20",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "16 Jul 2026",
+      "amount": "$100",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "15 Jul 2026",
+      "amount": "$100",
+      "detail": "Milazzo Service Launch – Enhanced End-to-End Transport Solution"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "17 Jul 2026",
+      "detail": "Operational Cost Imports (OCI) for the scope: World to Ghana"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "中东",
+      "detail": "Middle East Situation Updates"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "欧线",
+      "detail": "FAK Rates - North West India, South East India, Sri Lanka & Pakistan to North Europe, the Mediterranean & North Africa"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "欧线",
+      "detail": "PSS UPDATE- From North Europe to the Middle East and Red Sea"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "其他",
+      "detail": "PSS - From Egypt to Saudi Arabia"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "大洋洲",
+      "detail": "PSS REEFER to Liberia"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "欧线",
+      "detail": "LOW WATER SURCHARGE - From North Europe to Montreal, Canada"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "欧线",
+      "detail": "PSS - From Far East to Mozambique"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "欧线",
+      "detail": "Panama Canal Transit Surcharge - From Far East to Latin America East Coast and Caribbean"
+    },
+    {
+      "carrier": "CMA CGM",
+      "type": "附加费",
+      "route": "非洲",
+      "detail": "PSS - From China to West Africa"
+    }
+  ]
+}

@@ -1,6 +1,48 @@
 {
   "articles": [
     {
+      "id": "20260720-1",
+      "date": "2026-07-20",
+      "seo_title": "Maersk欧线附加费$100三连发-2026年7月货代即期成本拆解",
+      "topic_type": "surcharge",
+      "generated": true
+    },
+    {
+      "id": "20260720-2",
+      "date": "2026-07-20",
+      "seo_title": "CMA CGM 9条公告密集发布-2026年7月货代多航线应对策略",
+      "topic_type": "surcharge",
+      "generated": true
+    },
+    {
+      "id": "20260720-3",
+      "date": "2026-07-20",
+      "seo_title": "红海PSS常态化+巴拿马运河附加费-2026年7月中东拉美航线选择",
+      "topic_type": "surcharge",
+      "generated": true
+    },
+    {
+      "id": "20260719-1",
+      "date": "2026-07-19",
+      "seo_title": "航运surcharge2026年07月：货代影响与建议",
+      "topic_type": "surcharge",
+      "generated": false
+    },
+    {
+      "id": "20260719-2",
+      "date": "2026-07-19",
+      "seo_title": "航运surcharge2026年07月：货代影响与建议",
+      "topic_type": "surcharge",
+      "generated": false
+    },
+    {
+      "id": "20260719-3",
+      "date": "2026-07-19",
+      "seo_title": "航运surcharge2026年07月：货代影响与建议",
+      "topic_type": "surcharge",
+      "generated": false
+    },
+    {
       "id": "20260718-1",
       "date": "2026-07-18",
       "seo_title": "Maersk欧线附加费$100叠加效应-2026年7月货代即期成本拆解",
