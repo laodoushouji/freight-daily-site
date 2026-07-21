@@ -1,0 +1,42 @@
+{
+  "date": "2026-07-21",
+  "source": "freightos",
+  "updated": true,
+  "routes": [
+    {
+      "route": "欧线",
+      "price": "$2,700/40HQ",
+      "change": "$0",
+      "direction": "→",
+      "index_value": 2700.0
+    },
+    {
+      "route": "美西",
+      "price": "$1,950/40HQ",
+      "change": "$0",
+      "direction": "→",
+      "index_value": 1820.3
+    },
+    {
+      "route": "美东",
+      "price": "$3,200/40HQ",
+      "change": "$0",
+      "direction": "→",
+      "index_value": 2890.1
+    },
+    {
+      "route": "东南亚",
+      "price": "$450/20GP",
+      "change": "$0",
+      "direction": "→",
+      "index_value": 420.0
+    },
+    {
+      "route": "中东",
+      "price": "$3,850/20GP",
+      "change": "$0",
+      "direction": "→",
+      "index_value": 3850.0
+    }
+  ]
+}
