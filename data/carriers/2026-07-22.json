@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-22",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "16 Jul 2026",
+      "amount": "$100",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "21 Jul 2026",
+      "amount": "$100",
+      "detail": "Venezuela earthquake impact Update #3:   Resumption of operations at La Guaira"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "非洲",
+      "effective": "21 Jul 2026",
+      "detail": "ECS Adjustment for Exports from Salalah (Oman), Sohar (Oman), Fujairah(UAE), and Khor Fakkan(UAE)"
+    }
+  ]
+}
