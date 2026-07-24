@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-24",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "23 Jul 2026",
+      "amount": "$100",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "21 Jul 2026",
+      "amount": "$100",
+      "detail": "AC1 Service Update – Asia to West Coast South America"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "23 Jul 2026",
+      "detail": "Increase Peak Season Surcharge (PSS) – Far East Asia to Saudi Arabia"
+    }
+  ]
+}
