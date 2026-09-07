@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-07",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "2 Sep 2026",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "1 Sep 2026",
+      "detail": "Asia Shuttle Network Update Integration of A04 into A14"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "4 Sep 2026",
+      "detail": "Local Charges - Brazil"
+    }
+  ]
+}
