@@ -68,12 +68,13 @@ def get_all_articles() -> list:
         article_id = a.get("id", "")
         if not article_id:
             continue
-        # 查找对应的 JSON 文件
+        # 优先精确匹配 {id}.json，避免命中 generate_articles.py 的中间选题文件
+        exact = ARTICLES_DIR / f"{article_id}.json"
+        candidates = [exact] if exact.exists() else []
         date_prefix = article_id[:8]
-        matches = list(ARTICLES_DIR.glob(f"{date_prefix}*.json"))
-        matches = [m for m in matches if m.name != "_index.json"]
-
-        for mf in matches:
+        matches = [m for m in ARTICLES_DIR.glob(f"{date_prefix}*.json")
+                   if m.name != "_index.json" and m.name != f"{article_id}.json"]
+        for mf in candidates + matches:
             detail = load_json(mf)
             if detail and detail.get("id") == article_id:
                 a.update(detail)
