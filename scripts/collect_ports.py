@@ -140,9 +140,16 @@ def fetch_page(url: str) -> Optional[str]:
         return None
 
 
+def _kw_match(keyword: str, text_lower: str, original_text: str) -> bool:
+    """关键词匹配：英文用词边界，避免子串误判（enclosed→closed, award→war）"""
+    if keyword.isascii():
+        return bool(re.search(r"\b" + re.escape(keyword) + r"\b", text_lower))
+    return keyword in original_text
+
+
 def detect_alert(text: str, source_type: str = "unknown") -> tuple:
     """检测异常事件，返回 (是否异常, 事件描述, 原因, 消息源)
-    
+
     source_type 决定检测严格度：
     - "rss": RSS 新闻标题/摘要 → 严格匹配，直接用
     - "web": 网页全文 → 容易误判，跳过（只用 RSS 判断异常）
@@ -151,14 +158,14 @@ def detect_alert(text: str, source_type: str = "unknown") -> tuple:
     # 只信任 RSS 新闻源
     if source_type != "rss":
         return False, "", "", ""
-    
+
     text_lower = text.lower()
     for keyword in ALERT_KEYWORDS:
-        if keyword in text_lower:
+        if _kw_match(keyword, text_lower, text):
             # 提取包含关键词的句子
             sentences = re.split(r'[.。!！?？\n]', text)
             for sentence in sentences:
-                if keyword in sentence.lower() and len(sentence.strip()) > 10:
+                if _kw_match(keyword, sentence.lower(), sentence) and len(sentence.strip()) > 10:
                     # 清理 HTML 残留和多余空白
                     clean = re.sub(r'<[^>]+>', '', sentence.strip())
                     clean = re.sub(r'\s+', ' ', clean)[:150]
@@ -324,6 +331,7 @@ def try_rss_news(port_key: str) -> Optional[dict]:
     ]
 
     relevant_texts = []
+    alert_texts = []
 
     for feed_url in feed_urls:
         try:
@@ -336,6 +344,11 @@ def try_rss_news(port_key: str) -> Optional[dict]:
                 # 检查是否与该港口相关
                 if port_name_en.lower() in text.lower() or port_name_cn in text:
                     relevant_texts.append(text)
+                    # 铁律3：异常关键词必须与港口名出现在同一条新闻里才可信，
+                    # 严禁把多条新闻拼成一段后跨条目匹配关键词
+                    entry_alert, _, _, _ = detect_alert(text, "rss")
+                    if entry_alert:
+                        alert_texts.append(text)
         except Exception:
             continue
 
@@ -343,7 +356,12 @@ def try_rss_news(port_key: str) -> Optional[dict]:
         return None
 
     combined_text = " ".join(relevant_texts)
-    alert, alert_desc, alert_reason, alert_source = detect_alert(combined_text, "rss")
+    if alert_texts:
+        alert, alert_desc, alert_reason, alert_source = detect_alert(
+            " ".join(alert_texts), "rss"
+        )
+    else:
+        alert, alert_desc, alert_reason, alert_source = False, "", "", ""
     status = detect_congestion(combined_text)
     wait_days = extract_wait_days(combined_text, port_key)
 

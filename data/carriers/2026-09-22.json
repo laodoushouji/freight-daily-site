@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-22",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "21 Sep 2026",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "16 Sep 2026",
+      "detail": "Temporary Operational Adjustment on Qilin Service"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "21 Sep 2026",
+      "detail": "Revision of Heavy Load Surcharge – Far East Asia to North Europe (E1W)"
+    }
+  ]
+}
