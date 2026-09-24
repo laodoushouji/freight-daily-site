@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-24",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "航线动态",
+      "route": "中东",
+      "effective": "21 Sep 2026",
+      "detail": "Maersk Operations through Strait of Hormuz",
+      "source": "maersk.com/news",
+      "source_url": "https://www.maersk.com/news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "其他",
+      "effective": "22 Sep 2026",
+      "detail": "Emergency Inland Fuel/Energy surcharge（紧急内陆燃油/能源附加费）",
+      "source": "maersk.com/news",
+      "source_url": "https://www.maersk.com/news"
+    }
+  ]
+}
