@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-25",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "24 Sep 2026",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "23 Sep 2026",
+      "detail": "UAE Advance Cargo Manifest Implementation- Operational Guidelines"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "其他",
+      "effective": "24 Sep 2026",
+      "detail": "Intermodal Fuel Fee update in ITALY"
+    }
+  ]
+}
