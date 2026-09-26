@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-26",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "中东",
+      "effective": "28 Sep 2026",
+      "detail": "南欧/东南欧燃油附加费改周度更新：马其顿 EFS 27.5%、希腊/塞浦路斯同步调整（中东局势推高燃油成本）",
+      "amount": "Truck 27.5% (EFS, Macedonia)",
+      "source_url": "https://www.maersk.com/news/articles/2026/09/25/fuel-surcharge-update-macedonia-september-2026"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "舱单新规",
+      "route": "中东",
+      "effective": "01 Oct 2026",
+      "detail": "UAE MPCI 舱单预申报强制生效：No Manifest No Load 分阶段执法，过渡期先警告后 DNL",
+      "amount": "",
+      "source_url": "https://www.maersk.com/news/articles/2025/07/21/uae-advance-cargo-manifest-implementation-operational-guidelines"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "运营调整",
+      "route": "中东",
+      "effective": "23 Sep 2026",
+      "detail": "中东运营 Update 49：伊拉克/科威特/卡塔尔/巴林/沙特(达曼)约旦订舱暂停，阿联酋部分港口保留陆桥方案",
+      "amount": "",
+      "source_url": "https://www.maersk.com/news/articles/2026/09/23/middle-east-operational-update-49"
+    }
+  ]
+}

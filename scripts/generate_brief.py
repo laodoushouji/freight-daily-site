@@ -172,10 +172,16 @@ def generate_action_summary(rates_data: Optional[dict],
                 f"{g.get('effective','')}生效，建议GRI生效前完成订舱"
             )
         for s in surcharge_items[:2]:
-            actions.append(
-                f"{s['carrier']} {s['route']}附加费 {s.get('amount','')} "
-                f"{s.get('effective','')}起，锁定长协可免附加费"
-            )
+            amount = s.get('amount', '')
+            if amount:
+                actions.append(
+                    f"{s['carrier']} {s['route']}附加费 {amount} "
+                    f"{s.get('effective','')}起，{s.get('route','')}相关陆运段报价需计入该成本"
+                )
+            else:
+                actions.append(
+                    f"{s['carrier']} {s['route']}附加费 {s.get('effective','')}起，锁定长协可免附加费"
+                )
 
     # 基于港口预警 — 关键改动：带原因和替代方案
     if ports_data and ports_data.get("ports"):

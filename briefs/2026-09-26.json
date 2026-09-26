@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-26",
+  "date_display": "2026年09月26日",
+  "rate_snapshot": [
+    {
+      "route": "欧线",
+      "direction": "→",
+      "note": "持平，当前 $2,700/40HQ"
+    },
+    {
+      "route": "美西",
+      "direction": "→",
+      "note": "持平，当前 $1,950/40HQ"
+    },
+    {
+      "route": "美东",
+      "direction": "→",
+      "note": "持平，当前 $3,200/40HQ"
+    },
+    {
+      "route": "东南亚",
+      "direction": "→",
+      "note": "持平，当前 $450/20GP"
+    },
+    {
+      "route": "中东",
+      "direction": "→",
+      "note": "持平，当前 $3,850/20GP"
+    }
+  ],
+  "carrier_updates": [
+    "Maersk：中东附加费 Truck 27.5% (EFS, Macedonia)，28 Sep 2026起",
+    "Maersk：UAE MPCI 舱单预申报强制生效：No Manifest No Load 分阶段执法，过渡期先警告后 DNL",
+    "Maersk：中东运营 Update 49：伊拉克/科威特/卡塔尔/巴林/沙特(达曼)约旦订舱暂停，阿联酋部分港口保留陆桥方案"
+  ],
+  "port_alerts": [
+    "宁波：拥堵中（等泊 3-5） 外部数据源不可用，使用默认数据",
+    "上海：运行正常（等泊 2-4） 外部数据源不可用，使用默认数据",
+    "洛杉矶：正常运行（等泊 1-3）",
+    "鹿特丹：运行正常（等泊 1-2） 外部数据源不可用，使用默认数据",
+    "巴生：运行正常（默认值，数据源不可用）（等泊 2-3） 外部数据源不可用，使用默认数据",
+    "新加坡：运行正常（等泊 1-2）"
+  ],
+  "action_summary": [
+    "Maersk 中东附加费 Truck 27.5% (EFS, Macedonia) 28 Sep 2026起，中东相关陆运段报价需计入该成本"
+  ],
+  "meta": {
+    "rates_updated": true,
+    "carriers_count": 3,
+    "ports_alert_count": 0
+  }
+}
