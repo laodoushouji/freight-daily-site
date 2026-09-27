@@ -521,8 +521,11 @@ def collect_ports(date_str: str) -> dict:
             entry = build_fallback_port(port_key, date_str)
 
             # 如果有上周数据，沿用上周的对比信息
+            # 铁律3：上周条目若本身是降级默认值（detail 含"使用默认数据"），
+            # 其 status（如"拥堵中"）是僵尸状态，不得继承，防止误报跨日传播
             prev = last_week_ports.get(port_name, {})
-            if prev:
+            prev_is_default = "使用默认数据" in prev.get("detail", "")
+            if prev and not prev_is_default:
                 entry["wait_days"] = prev.get("wait_days", entry["wait_days"])
                 entry["status"] = prev.get("status", entry["status"])
                 entry["reason"] = prev.get("reason", "")
