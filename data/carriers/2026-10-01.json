@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-01",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "28 Sep 2026",
+      "detail": "Latest news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "30 Sep 2026",
+      "detail": "Europe to West Africa Service Enhancement"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "30 Sep 2026",
+      "detail": "Implementation of Peak Season Surcharge (PSS) for F3W trade"
+    }
+  ]
+}
