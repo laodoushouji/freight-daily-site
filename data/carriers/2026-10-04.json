@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-04",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "大洋洲",
+      "effective": "1 Nov 2026 (PCD)",
+      "amount": "+$500/20GP, +$1,000/40HQ",
+      "detail": "Peak Season Surcharge (PSS) Asia to Oceania：中国/香港/日韩/东南亚至澳新及太平洋岛屿，USD 500/20GP、1,000/40'，按PCD 2026-11-01起征",
+      "source": "maersk.com",
+      "source_url": "https://www.maersk.com/news/articles/2026/10/01/peak-season-surcharge-asia-to-oceania"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "美东",
+      "effective": "2 Oct 2026",
+      "amount": "+$2,000-7,300/40HQ",
+      "detail": "Peak Season Surcharge (PSS)：印巴/中东至美加东岸&墨西哥湾，中东各国出发 USD 2,000/40'（2-Oct-26起），西北印度/尼泊尔/不丹 USD 7,150，印巴至休斯顿 USD 7,300",
+      "source": "maersk.com",
+      "source_url": "https://www.maersk.com/news/articles/2026/10/01/pss-indian-subcontinent-middle-east-us-east-coast"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "19 Oct 2026",
+      "amount": "+$400/20GP(>25吨)",
+      "detail": "Heavy Load Surcharge (HWS)：远东至德国/波兰 20'箱 VGM超25吨征收 USD 400（19-Oct-26起，PCD计）；北欧其他目的地维持超28吨标准",
+      "source": "maersk.com",
+      "source_url": "https://www.maersk.com/news/articles/2026/10/01/heavy-load-surcharge-far-east-asia-to-north-europe"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "中东",
+      "effective": "29 Sep 2026",
+      "detail": "Middle East Operational Update 50：暂停UAE(含Khor Fakkan)/阿曼Salalah/伊拉克/科威特/卡塔尔/巴林的两岸订舱；沙特吉达仅限本地收货人（Emergency Freight USD 3,800）；约旦进出口可接但过境货暂停",
+      "source": "maersk.com",
+      "source_url": "https://www.maersk.com/news/articles/2026/09/29/middle-east-operational-update-50"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "南美",
+      "effective": "2 Oct 2026",
+      "detail": "Terminal Handling Service Revision (OHC/DHC)：全球往返巴西的码头操作费调整",
+      "source": "maersk.com",
+      "source_url": "https://www.maersk.com/news/articles/2026/10/02/terminal-handling-charge-revision-brazil"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "其他",
+      "route": "欧线",
+      "effective": "28 Sep 2026",
+      "detail": "AE12航线结构性调整：Umm Qarn轮成为双向通过苏伊士运河的首航次，新循环 宁波-上海-丹戎帕拉帕斯-苏伊士-阿尔赫西拉斯-科佩尔-里耶卡-阿尔赫西拉斯-苏伊士-新加坡",
+      "source": "maersk.com",
+      "source_url": "https://www.maersk.com/news/articles/2026/09/28/structural-change-to-ae12"
+    }
+  ]
+}

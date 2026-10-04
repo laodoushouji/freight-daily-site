@@ -55,8 +55,9 @@ CARRIERS = {
     "Maersk": {
         "name": "Maersk",
         "urls": [
+            "https://www.maersk.com/news/category/rate-announcements",
+            "https://www.maersk.com/news/category/advisories",
             "https://www.maersk.com/news",
-            "https://www.maersk.com/updates",
         ],
         "keywords": {
             "GRI": ["gri", "general rate increase", "rate increase"],
@@ -122,13 +123,18 @@ ROUTE_MAP = {
     "savannah": "美东",
     "southeast asia": "东南亚",
     "sea": "东南亚",
-    "middle east": "中东",
-    "gulf": "中东",
     "intra-asia": "东南亚",
+    "middle east": "中东",
+    "middleeast": "中东",
+    "gulf": "中东",
+    "red sea": "中东",
+    "arabian": "中东",
     "transpacific": "美西",
     "trans-atlantic": "欧线",
     "asia": "东南亚",
     "africa": "非洲",
+    "brazil": "南美",
+    "santos": "南美",
     "south america": "南美",
     "latin america": "南美",
     "oceania": "大洋洲",
@@ -260,6 +266,12 @@ def parse_carrier_news(carrier_key: str, html: str) -> list[dict]:
                 title = a_tag.get_text(strip=True)
             else:
                 title = text[:100]
+
+            # 跳过无实际标题的导航/栏目容器（如只含 "Rate announcements" 的菜单项）
+            if not title or len(title) < 20 or title in (
+                "Rate announcements", "Press releases", "Advisories", "News", "Events",
+            ):
+                continue
 
             # 提取日期
             effective = extract_date(text)
