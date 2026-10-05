@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-05",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "30 Sep 2026",
+      "detail": "Middle East Operational Update 50"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "南美",
+      "effective": "2 Oct 2026",
+      "detail": "Terminal Handling Service Revision – Origin/Destination (OHC/DHC)  World to/from Brazil"
+    }
+  ]
+}
