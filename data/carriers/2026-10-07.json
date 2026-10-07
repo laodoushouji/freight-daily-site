@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-07",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "30 Sep 2026",
+      "detail": "East Africa Region; Heavy Rainfall Outlook and Potential Cargo Disruptions"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "其他",
+      "effective": "6 Oct 2026",
+      "detail": "Rhine River - Low Water Surcharge & Benelux update on Low Water Conditions"
+    }
+  ]
+}
