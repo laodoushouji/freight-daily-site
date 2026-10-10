@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-10",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "8 Oct 2026",
+      "detail": "Middle East Operational Update 51"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "9 Oct 2026",
+      "detail": "Fuel Surcharge update in Greece"
+    }
+  ]
+}
