@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://freight-daily-site.vercel.app/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://freight-daily-site.vercel.app/articles/20261013-1-港口异常10月：2026年货代应对方案.html</loc><lastmod>2026-10-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://freight-daily-site.vercel.app/articles/20261013-2-航运surcharge2026年10月：.html</loc><lastmod>2026-10-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://freight-daily-site.vercel.app/articles/20261013-3-航运surcharge2026年10月：.html</loc><lastmod>2026-10-13</lastmod><priority>0.8</priority></url>
   <url><loc>https://freight-daily-site.vercel.app/articles/20261012-1-航运surcharge2026年10月：.html</loc><lastmod>2026-10-12</lastmod><priority>0.8</priority></url>
   <url><loc>https://freight-daily-site.vercel.app/articles/20261011-1-航运surcharge2026年10月：.html</loc><lastmod>2026-10-11</lastmod><priority>0.8</priority></url>
   <url><loc>https://freight-daily-site.vercel.app/articles/20261011-2-航运surcharge2026年10月：.html</loc><lastmod>2026-10-11</lastmod><priority>0.8</priority></url>

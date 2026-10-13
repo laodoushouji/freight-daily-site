@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-13",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "8 Oct 2026",
+      "detail": "UCLA Service Enhancement: Suape Call Inclusion"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "东南亚",
+      "effective": "12 Oct 2026",
+      "detail": "Peak Season Surcharge (PSS) for India to South Africa"
+    }
+  ]
+}
