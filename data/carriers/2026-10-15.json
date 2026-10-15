@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-15",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "14 Oct 2026",
+      "detail": "FM1 service to re-launch on Gemini Network : Asia – Middle East"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "其他",
+      "effective": "14 Oct 2026",
+      "detail": "Market Notification – Fuel Surcharge update in Canada Effective starting on November 1st, 2026"
+    }
+  ]
+}
