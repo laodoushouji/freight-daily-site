@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-18",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "14 Oct 2026",
+      "detail": "Notice of New Bank Account for Maersk Logistics & Services Canada Inc."
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "美东",
+      "effective": "16 Oct 2026",
+      "detail": "U.S. & Canada Emergency Intermodal Fuel Surcharge   Inland Rail Ramps and Container Yards"
+    }
+  ]
+}
