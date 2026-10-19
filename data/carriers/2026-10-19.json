@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-19",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "通知",
+      "route": "加拿大",
+      "effective": "2026-10",
+      "detail": "Maersk Logistics & Services Canada Inc. 启用新银行收款账户（官方通知，警惕冒充船司的付款账户诈骗邮件，付款前务必与 Maersk 官方核对收款账户）",
+      "source": "maersk.com/news",
+      "source_url": "https://www.maersk.com/news"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "美东/美加内陆",
+      "effective": "16 Oct 2026",
+      "detail": "U.S. & Canada Emergency Intermodal Fuel Surcharge — Inland Rail Ramps and Container Yards（美国及加拿大内陆铁路场站/堆场多式联运紧急燃油附加费，具体金额以订舱确认为准）",
+      "source": "maersk.com/news",
+      "source_url": "https://www.maersk.com/news/category/rate-announcements"
+    }
+  ]
+}
