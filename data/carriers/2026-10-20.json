@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-20",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "19 Oct 2026",
+      "detail": "Enhanced connectivity between the Western Mediterranean and West Africa"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "19 Oct 2026",
+      "detail": "Customer Advisory - European and Mediterranean countries - Transport Document Amendment Fee Export (AME) Revised Egypt rates and Algeria implementation."
+    }
+  ]
+}
