@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-21",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "19 Oct 2026",
+      "detail": "East Asia network recovery: Update 3"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "地中",
+      "effective": "20 Oct 2026",
+      "detail": "Peak Season Surcharge (PSS) for the Scope:   West Mediterranean to United States and Canada"
+    }
+  ]
+}
