@@ -27,3 +27,4 @@ node_modules/
 # Articles index (built, not source)
 # We keep _index.json in the repo for Vercel to serve
 .vercel
+.esa_staging/
