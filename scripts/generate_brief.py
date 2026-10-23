@@ -89,7 +89,11 @@ def generate_carrier_updates(carriers_data: Optional[dict]) -> list:
         elif ctype == "新航线":
             line = f"{carrier}：新开{route}航线，{detail[:40]}"
         elif ctype == "附加费":
-            line = f"{carrier}：{route}附加费 {amount}，{effective}起"
+            if amount:
+                line = f"{carrier}：{route}附加费 {amount}，{effective}起"
+            else:
+                # 数据质量铁律：金额未核实就不展示"附加费 ，"这种残缺信息
+                line = f"{carrier}：{route}费用调整，{effective}起 — {detail[:40]}（金额请向船司核实）"
         else:
             line = f"{carrier}：{detail[:60]}" if detail else f"{carrier}：{ctype} {route}"
 
@@ -179,8 +183,10 @@ def generate_action_summary(rates_data: Optional[dict],
                     f"{s.get('effective','')}起，{s.get('route','')}相关陆运段报价需计入该成本"
                 )
             else:
+                # 数据质量铁律：金额未披露时不能给"锁定长协可免附加费"这类未经核实的承诺
                 actions.append(
-                    f"{s['carrier']} {s['route']}附加费 {s.get('effective','')}起，锁定长协可免附加费"
+                    f"{s['carrier']} {s['route']}费用调整 {s.get('effective','')}起，金额未披露 — "
+                    f"先向{s['carrier']}销售索取公告原文核实金额与适用范围，再对外报价"
                 )
 
     # 基于港口预警 — 关键改动：带原因和替代方案

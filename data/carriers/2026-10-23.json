@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-23",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "19 Oct 2026",
+      "detail": "Important Update: Europe/America coverage from Walvis Bay"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "美西",
+      "effective": "22 Oct 2026",
+      "detail": "Customs Multi-Stop Tariff Update – Honduras"
+    }
+  ]
+}
