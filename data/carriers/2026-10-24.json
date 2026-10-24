@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-24",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "19 Oct 2026",
+      "detail": "London Gateway Port: Suspension of Empty Container Acceptance"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "美西",
+      "effective": "23 Oct 2026",
+      "detail": "Change to Emergency Contingency Surcharge  Middle East to West Africa (W2MW)"
+    }
+  ]
+}
