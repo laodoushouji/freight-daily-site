@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-28",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "19 Oct 2026",
+      "detail": "Europe to/from North America Services TA Christmas/New Year programme"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "27 Oct 2026",
+      "detail": "Emergency Inland Fuel/Energy surcharge"
+    }
+  ]
+}
