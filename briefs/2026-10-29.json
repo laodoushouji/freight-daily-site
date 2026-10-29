@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-29",
+  "date_display": "2026年10月29日",
+  "rate_snapshot": [
+    {
+      "route": "欧线",
+      "direction": "→",
+      "note": "持平，当前 $2,700/40HQ"
+    },
+    {
+      "route": "美西",
+      "direction": "→",
+      "note": "持平，当前 $1,950/40HQ"
+    },
+    {
+      "route": "美东",
+      "direction": "→",
+      "note": "持平，当前 $3,200/40HQ"
+    },
+    {
+      "route": "东南亚",
+      "direction": "→",
+      "note": "持平，当前 $450/20GP"
+    },
+    {
+      "route": "中东",
+      "direction": "→",
+      "note": "持平，当前 $3,850/20GP"
+    }
+  ],
+  "carrier_updates": [
+    "Maersk：欧线费用调整，19 Oct 2026起 — Adjustment to Inland Haulage Cost Struct（金额请向船司核实）",
+    "Maersk：中东费用调整，28 Oct 2026起 — Change to Emergency Contingency Surcharg（金额请向船司核实）"
+  ],
+  "port_alerts": [
+    "宁波：运行正常（等泊 3-5） 外部数据源不可用，使用默认数据",
+    "上海：运行正常（等泊 2-4） 外部数据源不可用，使用默认数据",
+    "洛杉矶：正常运行（等泊 1-3）",
+    "鹿特丹：运行正常（等泊 1-2）",
+    "巴生：运行正常（等泊 2-3） 外部数据源不可用，使用默认数据",
+    "新加坡：运行正常（等泊 1-2）"
+  ],
+  "action_summary": [
+    "Maersk 欧线费用调整 19 Oct 2026起，金额未披露 — 先向Maersk销售索取公告原文核实金额与适用范围，再对外报价",
+    "Maersk 中东费用调整 28 Oct 2026起，金额未披露 — 先向Maersk销售索取公告原文核实金额与适用范围，再对外报价"
+  ],
+  "meta": {
+    "rates_updated": true,
+    "carriers_count": 2,
+    "ports_alert_count": 0
+  }
+}
