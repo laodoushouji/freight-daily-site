@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-30",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "GRI",
+      "route": "欧线",
+      "effective": "19 Oct 2026",
+      "detail": "Adjustment to Inland Haulage Cost Structure – Finland"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "GRI",
+      "route": "欧线",
+      "effective": "29 Oct 2026",
+      "detail": "Andernach Inland Terminal – Resumption of Regular Barge Operations"
+    }
+  ]
+}
