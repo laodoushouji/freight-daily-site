@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://freight-daily-site.vercel.app/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://freight-daily-site.vercel.app/articles/20261031-1-航运rate_change2026年10.html</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
+  <url><loc>https://freight-daily-site.vercel.app/articles/20261031-2-航运rate_change2026年10.html</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
+  <url><loc>https://freight-daily-site.vercel.app/articles/20261031-3-航运carrier_news2026年1.html</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://freight-daily-site.vercel.app/articles/20261030-1-GRI涨价10月：2026年货代成本影响.html</loc><lastmod>2026-10-30</lastmod><priority>0.8</priority></url>
   <url><loc>https://freight-daily-site.vercel.app/articles/20261030-2-GRI涨价10月：2026年货代成本影响.html</loc><lastmod>2026-10-30</lastmod><priority>0.8</priority></url>
   <url><loc>https://freight-daily-site.vercel.app/articles/20261030-3-航运rate_change2026年10.html</loc><lastmod>2026-10-30</lastmod><priority>0.8</priority></url>

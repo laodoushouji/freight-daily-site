@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-31",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "30 Oct 2026",
+      "detail": "Temporary Booking Restrictions: Khor Fakkan, Fujairah and Selected Upper Gulf Destinations"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "南美",
+      "effective": "30 Oct 2026",
+      "detail": "Maersk Customer Advisory  Dadri Reefer Export Tariff revision"
+    }
+  ]
+}
