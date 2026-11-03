@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-03",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "30 Oct 2026",
+      "detail": "London Gateway Port: Suspension of Empty Container Acceptance"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "2 Nov 2026",
+      "detail": "Peak Season Surcharge (PSS) for the scope: Far East Asia to East Coast South America (X4FS)"
+    }
+  ]
+}
