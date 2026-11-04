@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>货代日报 — 每日决策简报</title>
+    <link>https://freight-daily-site.vercel.app</link>
+    <description>运价风向·船司动态·港口预警·操作建议</description>
+    <item>
+      <title>Maersk伦敦门户港暂停空箱调运2026年11月生效：货代还箱与用箱影响全解析</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261103-1-航运carrier_news2026年1.html</link>
+      <pubDate>2026-11-03</pubDate>
+    </item>
+    <item>
+      <title>Maersk欧线PSS旺季附加费2026年11月2日生效：货代报价与锁价应对指南</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261103-2-航运carrier_news2026年1.html</link>
+      <pubDate>2026-11-03</pubDate>
+    </item>
+    <item>
+      <title>Maersk欧线附加费调整2026年11月：Khor Fak订舱限制货代应对3动作</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261102-1-航运carrier_news2026年1.html</link>
+      <pubDate>2026-11-02</pubDate>
+    </item>
+    <item>
+      <title>Maersk冷箱附加费2026年11月：Dadri冷箱调整南美线货代报价指南</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261102-2-航运carrier_news2026年1.html</link>
+      <pubDate>2026-11-02</pubDate>
+    </item>
+    <item>
+      <title>Maersk Khor Fak订舱限制2026年11月生效：中东线货代影响与应对</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261101-1-航运carrier_news2026年1.html</link>
+      <pubDate>2026-11-01</pubDate>
+    </item>
+    <item>
+      <title>Maersk南美线冷柜咨询2026年11月：Dadri冷冻柜货代影响与应对</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261101-2-航运carrier_news2026年1.html</link>
+      <pubDate>2026-11-01</pubDate>
+    </item>
+    <item>
+      <title>航运rate_change2026年10月：货代影响与建议</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261031-1-航运rate_change2026年10.html</link>
+      <pubDate>2026-10-31</pubDate>
+    </item>
+    <item>
+      <title>航运rate_change2026年10月：货代影响与建议</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261031-2-航运rate_change2026年10.html</link>
+      <pubDate>2026-10-31</pubDate>
+    </item>
+    <item>
+      <title>航运carrier_news2026年10月：货代影响与建议</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261031-3-航运carrier_news2026年1.html</link>
+      <pubDate>2026-10-31</pubDate>
+    </item>
+    <item>
+      <title>GRI涨价10月：2026年货代成本影响分析</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261030-1-GRI涨价10月：2026年货代成本影响.html</link>
+      <pubDate>2026-10-30</pubDate>
+    </item>
+  </channel>
+</rss>
