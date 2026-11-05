@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-05",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "3 Nov 2026",
+      "detail": "Vincent Thomas Bridge Full Closure   San Pedro Bay Port Complex — Port of Los Angeles and Port of Long Beach"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "4 Nov 2026",
+      "detail": "Implementation of Heavy Load Surcharge (HWS) – Far East Asia to Mediterranean (E2W)"
+    }
+  ]
+}
