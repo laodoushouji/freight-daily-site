@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-06",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "3 Nov 2026",
+      "detail": "Wednesday November 11th – Special Customer Service Hours"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "5 Nov 2026",
+      "detail": "Peak Season Surcharge (PSS) – Indian Subcontinent & Middle East to US East Coast & Gulf"
+    }
+  ]
+}
