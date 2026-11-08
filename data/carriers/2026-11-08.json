@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-08",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "6 Nov 2026",
+      "detail": "Middle East Operational Update 53"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "6 Nov 2026",
+      "detail": "Change to Emergency Contingency Surcharge (ECS)   Indian Subcontinent to North Europe & Mediterranean (E3W & E4W)"
+    }
+  ]
+}
