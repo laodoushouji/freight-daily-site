@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-11",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "9 Nov 2026",
+      "detail": "Middle East Operational Update 53"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "10 Nov 2026",
+      "detail": "Internal Customs Transit Surcharge (Nicaragua)"
+    }
+  ]
+}
