@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-13",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "GRI",
+      "route": "欧线",
+      "effective": "11 Nov 2026",
+      "detail": "Maersk Less-than-Container Load (LCL) Surcharge Information 2026"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "中东",
+      "effective": "12 Nov 2026",
+      "detail": "Maersk Less-than-Container Load (LCL) Surcharge Information 2026"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "GRI",
+      "route": "欧线",
+      "effective": "12 Nov 2026",
+      "detail": "Rate Increase Announcement – Far East to North Europe & Mediterranean"
+    }
+  ]
+}
