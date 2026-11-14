@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-14",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "GRI",
+      "route": "欧线",
+      "effective": "11 Nov 2026",
+      "detail": "Global Microsoft service disruption"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "GRI",
+      "route": "欧线",
+      "effective": "13 Nov 2026",
+      "detail": "Increase of Peak Season Surcharge (PSS)  China & Hong Kong China to Dar Es Salaam"
+    }
+  ]
+}
