@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-20",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "17 Nov 2026",
+      "detail": "No Shipping Instruction, No Load Policy for Cargo Exporting from New Zealand"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "美东",
+      "effective": "19 Nov 2026",
+      "detail": "Implementation of Heavy Load Surcharge (HWS) – China to Brazil, Argentina, and Uruguay (X4FS)"
+    }
+  ]
+}
