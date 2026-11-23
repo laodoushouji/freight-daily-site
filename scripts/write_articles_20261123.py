@@ -69,6 +69,10 @@ for it in items:
         it["seo_title"] = upd["seo_title"]
         it["tags"] = upd["tags"]
         it["generated"] = True
+if isinstance(idx, list):
+    idx = items
+else:
+    idx["articles"] = items
 with open(IDX, "w", encoding="utf-8") as fh:
     json.dump(idx, fh, ensure_ascii=False, indent=2)
 print(f"✅ 索引已同步: 删除 {removed} 项, 共 {len(items)} 篇")
