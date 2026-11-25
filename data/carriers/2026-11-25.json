@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-25",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "空班",
+      "route": "欧线",
+      "effective": "23 Nov 2026",
+      "detail": "United Kingdom and Ireland (UKI) operational situation"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "美西",
+      "effective": "24 Nov 2026",
+      "detail": "Change to Emergency Contingency Surcharge Indian Sub-Continent to West Coast Latin America (B1S)"
+    }
+  ]
+}
