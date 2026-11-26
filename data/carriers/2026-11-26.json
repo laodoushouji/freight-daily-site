@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-26",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "空班",
+      "route": "欧线",
+      "effective": "25 Nov 2026",
+      "detail": "Shipping Instruction Requirements – Important Advisory"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "25 Nov 2026",
+      "detail": "Emergency Inland Fuel/Energy surcharge"
+    }
+  ]
+}

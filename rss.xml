@@ -5,6 +5,21 @@
     <link>https://freight-daily-site.vercel.app</link>
     <description>运价风向·船司动态·港口预警·操作建议</description>
     <item>
+      <title>美西运价单日跳涨6179美元至8000：2026年11月货代锁价与订舱建议</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261126-1-航运rate_change2026年11.html</link>
+      <pubDate>2026-11-26</pubDate>
+    </item>
+    <item>
+      <title>Maersk欧线空班11月25日起：2026年舱位替代方案与订舱建议</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261126-2-航运blank_sailing2026年.html</link>
+      <pubDate>2026-11-26</pubDate>
+    </item>
+    <item>
+      <title>Maersk欧线紧急内陆燃油附加费11月25日生效：2026年报价应对指南</title>
+      <link>https://freight-daily-site.vercel.app/articles/20261126-3-航运carrier_news2026年1.html</link>
+      <pubDate>2026-11-26</pubDate>
+    </item>
+    <item>
       <title>航运blank_sailing2026年11月：货代影响与建议</title>
       <link>https://freight-daily-site.vercel.app/articles/20261125-1-航运blank_sailing2026年.html</link>
       <pubDate>2026-11-25</pubDate>
@@ -38,21 +53,6 @@
       <title>运价全线持平11月底：欧线2700美元下的出货决策窗口（2026年11月）</title>
       <link>https://freight-daily-site.vercel.app/articles/20261123-1-航运carrier_news2026年1.html</link>
       <pubDate>2026-11-23</pubDate>
-    </item>
-    <item>
-      <title>五大航线运价全平2026年11月22日：货代周初锁价与订舱策略</title>
-      <link>https://freight-daily-site.vercel.app/articles/20261122-1-航运carrier_news2026年1.html</link>
-      <pubDate>2026-11-22</pubDate>
-    </item>
-    <item>
-      <title>欧线运价2700美元持平：2026年11月货代订舱策略分析</title>
-      <link>https://freight-daily-site.vercel.app/articles/20261121-1-航运carrier_news2026年1.html</link>
-      <pubDate>2026-11-21</pubDate>
-    </item>
-    <item>
-      <title>Maersk欧线No SI No Load政策2026年11月生效：货代操作对策</title>
-      <link>https://freight-daily-site.vercel.app/articles/20261120-1-航运carrier_news2026年1.html</link>
-      <pubDate>2026-11-20</pubDate>
     </item>
   </channel>
 </rss>
