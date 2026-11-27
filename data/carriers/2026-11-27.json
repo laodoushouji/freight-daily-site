@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-27",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "欧线",
+      "effective": "January 1, 2027",
+      "detail": "Opening hours during Christmas & New Year 2026/2027 for  Maersk Customs Services- NDC"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "其他",
+      "effective": "January 1, 2027",
+      "detail": "Intermodal Fuel Fee update in ITALY"
+    }
+  ]
+}
