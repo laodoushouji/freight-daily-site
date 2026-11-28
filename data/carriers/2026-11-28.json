@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-28",
+  "items": [
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "美东",
+      "effective": "26 Nov 2026",
+      "detail": "Opening hours during Christmas & New Year 2026/2027 for  Maersk Customs Services- NDC"
+    },
+    {
+      "carrier": "Maersk",
+      "type": "附加费",
+      "route": "东南亚",
+      "effective": "27 Nov 2026",
+      "detail": "Implementation of Peak Season Surcharge (PSS) from West Africa and Namibia to Selected U.S. Destinations"
+    }
+  ]
+}
